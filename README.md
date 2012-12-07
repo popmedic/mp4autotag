@@ -24,7 +24,7 @@ Mp4AutoTag is a meta data editor for mp4 file types.  In-other-words, it edits t
 
 ## Download Mp4Autotag ##
 
-You can download the latest Mp4Autotag and older versions from the [download page](./download).
+You can download the latest Mp4Autotag and older versions from the [download page](https://github.com/popmedic/mp4autotag/wiki/download).
 
 [Table of Contents](#table-of-contents)
 
