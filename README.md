@@ -1,6 +1,6 @@
 # Mp4Autotag #
 
-[Download](https://github.com/muttsnutts/mp4autotag/wiki/download)
+[Download](https://github.com/popmedic/mp4autotag/wiki/download)
 
 ![icon.](http://www.popmedic.com/images/mp4autotag_icon_32.png) 
 
