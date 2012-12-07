@@ -307,7 +307,7 @@
 }
 
 - (IBAction)helpClick:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/muttsnutts/mp4autotag#mp4autotag"]];
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/popmedic/mp4autotag#mp4autotag"]];
 }
 
 //autotaging functions.....
