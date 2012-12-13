@@ -155,7 +155,7 @@
 												//itunes season watermarked poster.
 												
 				//first see if we are using episode posters
-				if(coverArtType == 1)
+				if(coverArtType == 0)
 				{
 					if([poster compare:@""] != 0) {
 						imgurl = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.thetvdb.com/banners/%@", poster]];
@@ -209,6 +209,8 @@
 				
 				//set img to the tag...
 				[tag setImage:img];
+				//clean up the img
+				img = nil;
 				
 				if(epinum == episearchnum && seanum == seasearchnum){
 					if([series compare:tvshow options:NSCaseInsensitiveSearch] == 0)

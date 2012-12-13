@@ -151,22 +151,22 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mp4Autotag/POPTVDB.m"
-         timestampString = "375392343.227247"
+         timestampString = "377097088.327131"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "253"
-         endingLineNumber = "253">
+         startingLineNumber = "255"
+         endingLineNumber = "255">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mp4Autotag/POPTVDB.m"
-         timestampString = "375392343.227247"
+         timestampString = "377097088.327131"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "250"
-         endingLineNumber = "250">
+         startingLineNumber = "252"
+         endingLineNumber = "252">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -257,19 +257,6 @@
          startingLineNumber = "21"
          endingLineNumber = "21"
          landmarkName = "-queryURL:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Mp4Autotag/POPTVDB.m"
-         timestampString = "375392343.227247"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "158"
-         endingLineNumber = "158"
-         landmarkName = "-searchTVFor:season:episode:coverArtType:useITunes:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
