@@ -6,11 +6,14 @@ require './lib/search_itunes.rb'
 require './lib/tag.rb'
 
 class Search
+
   def Search::search(search_path, use_itunes=0)
     #part out the search path
     pathparts = search_path.split('/')
+    
     #remove the filename
     filename_str = pathparts.last
+    
     #get the relitives of the path
     parentdir_str = nil
     if(pathparts.count > 1)
@@ -34,7 +37,7 @@ class Search
     ext = File.extname(filename_str)
     md = /(\.mp4)|(\.m4v)|(\.mov)|(\.mkv)|(\.ogg)|(\.avi)|(\.flv)|(\.m1v)|(\.m2v)|(\.mpeg)|(\.roq)|(\.rm)|(\.swf)|(\.wmv)/.match(ext)
     if(md != nil) 
-      basestr = filename_str.chomp(File.extname(filename_str)).gsub(/[\.\-_\+]/, ' ')
+      basestr = filename_str.chomp(ext).gsub(/[\.\-_\+]/, ' ')
     else
       basestr = filename_str.gsub(/[\.\-\_\+]/, ' ')
     end
@@ -42,6 +45,7 @@ class Search
     seastr = '0'
     epistr = '0'
     is_movie = true
+    
     #check to see if this basestr is a show
     #first check for / e([0-9]+)/i
     if((md = /e([0-9]+)/i.match(basestr)) != nil)
@@ -59,6 +63,7 @@ class Search
           serstr = md[1].strip
         end
       end
+    
     #maybe we have a / ([0-9]+)x([0-9]+)/i, could be a SxE...
     elsif((md = /([0-9]+)x([0-9]+)/i.match(basestr)) != nil)
       is_movie = false
@@ -68,9 +73,11 @@ class Search
       if((md = /(.+) [0-9]+x[0-9]+/i.match(basestr)) != nil)
         serstr = md[1].strip
       end
+    
     #maybe we have a /([0-9]{4})/ could be a date, or a SSEE...
     #elsif((md = /([0-9]{4})/i.match(filename_str)) != nil)
     end
+    
     #if we don't have a movie and we don't have a seastr and we have a parent dir string, check the parent...
     if(is_movie == false && parentdir_str != nil)
       #see if the parentdir_str has /season ([0-9]+)/
@@ -83,6 +90,7 @@ class Search
         end
       end
     end
+    
     #if we don't have a movie and we don't have a serstr and we have a parent dir string, make the serstr tha parent...
     if(is_movie == false && serstr == '' && parentdir_str != nil)
       serstr = parentdir_str
@@ -90,6 +98,7 @@ class Search
     rtn = []
     movstr = ''
     yearstr= ''
+    
     #if we have a movie, do a movie search
     if(is_movie)
       if((md = /(.+) {0,1}\({0,1}([0-9]{4})\){0,1}/i.match(basestr)) != nil)
@@ -100,10 +109,12 @@ class Search
         movstr = basestr
       end
       rtn = Search.movie_search(basestr, movstr, yearstr)
+    
     #otherwise do a show search
     else
       rtn = Search.show_search(basestr, serstr, seastr, epistr)
     end
+    
     #if we still have nothing, and we did not do a movie search...
     if(rtn.count == 0 && !is_movie)
       rtn = Search.movie_search(basestr)
@@ -129,16 +140,19 @@ class Search
     
     return rtn
   end
+  
   def Search::movie_search(basestr, movstr, yearstr)
     Search.dbug "MOVIE SEARCH: basestr = \"%s\", movstr = \"%s\", yearstr = \"%s\"" % 
                           [basestr, movstr, yearstr]
     return SearchMovie.search({'basestr' => basestr, 'movstr' => movstr, 'yearstr' => yearstr})
   end
+  
   def Search::show_search(basestr, serstr, seastr, epistr)
     Search.dbug "SHOW SEARCH: basestr = \"%s\", serstr = \"%s\", seastr.to_i = \"%i\", epistr.to_i = \"%i\"" % 
                           [basestr, serstr, seastr.to_i, epistr.to_i]
     return SearchShow.search({'basestr' => basestr, 'serstr' => serstr, 'seastr' => seastr, 'epistr' => epistr})
   end
+  
   def Search::to_html(res)
     html = "<html><head><title>mp4autotag_server</title></head><body><table>"
     if(res.count > 0)
@@ -182,6 +196,7 @@ class Search
     html << "</tbody></table></body></html>"
     return html
   end
+  
   def Search::query(urlstr)
     str = ''
     cfn = "./cache/" << Digest::MD5.hexdigest(urlstr)
@@ -208,6 +223,7 @@ class Search
     end
     return str
   end
+  
   def Search::dbug(str)
     if $DEBUG_POP
       puts "[%s] DEBUG  %s. (search.rb)" % [Time.now.to_s.sub(/ [\-\+][0-9]{4}$/, ''), str]
