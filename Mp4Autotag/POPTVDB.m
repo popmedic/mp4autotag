@@ -188,29 +188,30 @@
 				//if we got an image then lets see if we should watermark it
 				if(img != nil && addWatermark > 0)
 				{
-					[img lockFocus];
-					NSString *wm = [NSString stringWithFormat:@"S%0.2iE%0.2i ", [[tag property:@"TV Season"] intValue], [[tag property:@"TV Episode"] intValue]];
-					float fs = [img alignmentRect].size.width/4.3;
-					if([img alignmentRect].size.height < [img alignmentRect].size.width)
+					if([img isValid])
 					{
-						fs = [img alignmentRect].size.height/4.3;
+						[img lockFocus];
+						NSString *wm = [NSString stringWithFormat:@"S%0.2iE%0.2i ", [[tag property:@"TV Season"] intValue], [[tag property:@"TV Episode"] intValue]];
+						float fs = [img alignmentRect].size.width/4.3;
+						if([img alignmentRect].size.height < [img alignmentRect].size.width)
+						{
+							fs = [img alignmentRect].size.height/4.3;
+						}
+						NSMutableParagraphStyle *style = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+						[style setAlignment:NSRightTextAlignment];
+						NSDictionary* atts = [NSDictionary dictionaryWithObjectsAndKeys:
+												   [NSColor colorWithCalibratedWhite:0.0 alpha:0.3], NSForegroundColorAttributeName,
+												   [NSColor colorWithCalibratedRed:1.0 green:1.0 blue:1.0 alpha:0.3], NSBackgroundColorAttributeName,
+												   style, NSParagraphStyleAttributeName,
+												   [NSFont fontWithName:@"Helvetica-Bold" size:fs], NSFontAttributeName,
+												   nil ];
+						[wm drawInRect:[img alignmentRect] withAttributes:atts];
+						[img unlockFocus];
 					}
-					NSMutableParagraphStyle *style = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
-					[style setAlignment:NSRightTextAlignment];
-					NSDictionary* atts = [NSDictionary dictionaryWithObjectsAndKeys:
-											   [NSColor colorWithCalibratedWhite:0.0 alpha:0.3], NSForegroundColorAttributeName,
-											   [NSColor colorWithCalibratedRed:1.0 green:1.0 blue:1.0 alpha:0.3], NSBackgroundColorAttributeName,
-											   style, NSParagraphStyleAttributeName,
-											   [NSFont fontWithName:@"Helvetica-Bold" size:fs], NSFontAttributeName,
-											   nil ];
-					[wm drawInRect:[img alignmentRect] withAttributes:atts];
-					[img unlockFocus];
 				}
 				
 				//set img to the tag...
 				[tag setImage:img];
-				//clean up the img
-				img = nil;
 				
 				if(epinum == episearchnum && seanum == seasearchnum){
 					if([series compare:tvshow options:NSCaseInsensitiveSearch] == 0)
