@@ -5,66 +5,121 @@ require './lib/search_show.rb'
 require './lib/search_itunes.rb'
 require './lib/tag.rb'
 
-$MOVIE_REGXS = [
-  /((?:.*))(?:\(|\W)([0-9]{4})(?:\)){0,1}/
-]
-$SHOW_REGXS = [
-  /((?:.*))(?:\/|\W+)(?:season|Series|sea|s)\W?((?:\d{1,2}))(?:\/|\W|x){0,1}(?:(?:episode|epi|ep|e)\W?)*(\d+)/i,
-  /((?:.*))(?:\/|\W+)((?:\d{1,2}))\W*x\W*(\d+)/i,
-  /((?:.*))(?:\/|\W+)()(?:e)(\d+)/i
-];
-
 class Search
+
   def Search::search(search_path, use_itunes=0)
-    rtn = []
-    results = []
+    #part out the search path
+    pathparts = search_path.split('/')
     
-    s = search_path.gsub(/[\.\-\_]/, ' ')
-    ext = File.extname(search_path)
+    #remove the filename
+    filename_str = pathparts.last
+    
+    #get the relitives of the path
+    parentdir_str = nil
+    if(pathparts.count > 1)
+      parentdir_str = pathparts[pathparts.count-2]
+    end
+    grandparentdir_str = nil
+    if(pathparts.count > 2)
+      grandparentdir_str = pathparts[pathparts.count-3]
+    end
+    
+    #see what we have for an extension, because .xml, .json, .txt, and .html are formats
+    ext = File.extname(filename_str)
+    md = /(\.xml)|(\.json)|(\.txt)|(\.html)/i.match(ext)
+    if(md != nil)
+      $OUT_FMT = md[0]
+      #if(/\.json/i.match(md.to_s) == nil)
+      #  raise "json is the only format currently supported."
+      #end
+      filename_str.chomp!(ext)
+    end
+    ext = File.extname(filename_str)
     md = /(\.mp4)|(\.m4v)|(\.mov)|(\.mkv)|(\.ogg)|(\.avi)|(\.flv)|(\.m1v)|(\.m2v)|(\.mpeg)|(\.roq)|(\.rm)|(\.swf)|(\.wmv)/.match(ext)
     if(md != nil) 
-      s = s.chomp(ext[1,3])
+      basestr = filename_str.chomp(ext).gsub(/[\.\-_\+]/, ' ')
+    else
+      basestr = filename_str.gsub(/[\.\-\_\+]/, ' ')
+    end
+    serstr = ''
+    seastr = '0'
+    epistr = '0'
+    is_movie = true
+    
+    #check to see if this basestr is a show
+    #first check for / e([0-9]+)/i
+    if((md = /e([0-9]+)/i.match(basestr)) != nil)
+      is_movie = false
+      epistr = md[1]
+      #see if we have a series name...
+      if((md = /(.+) e[0-9]+/i.match(basestr)) != nil)
+        serstr = md[1].strip
+      end
+      #see if there is a /s([0-9]+)/i for a season...
+      if((md = /s([0-9]+)/i.match(basestr)) != nil)
+        seastr = md[1]
+        #see if we have a series name...
+        if((md = /(.+) s[0-9]+ *e[0-9]+/i.match(basestr)) != nil)
+          serstr = md[1].strip
+        end
+      end
+    
+    #maybe we have a / ([0-9]+)x([0-9]+)/i, could be a SxE...
+    elsif((md = /([0-9]+)x([0-9]+)/i.match(basestr)) != nil)
+      is_movie = false
+      epistr = md[2]
+      seastr = md[1]
+      #see if we have a series name...
+      if((md = /(.+) [0-9]+x[0-9]+/i.match(basestr)) != nil)
+        serstr = md[1].strip
+      end
+    
+    #maybe we have a /([0-9]{4})/ could be a date, or a SSEE...
+    #elsif((md = /([0-9]{4})/i.match(filename_str)) != nil)
     end
     
-    dbug "Search on: " << s
-    $MOVIE_REGXS.each do |regx|
-      md = regx.match(s)
-      if(md)
-        y = md[2].to_i
-        if(y > 1880 && y <= Time.now.year.to_i)
-          dbug "Movie Matched: " << search_path 
-          dbug "\tMovie: " << File.basename(md[1]) << ";\tYear: " << md[2]
-          results << Hash["Type" => "Movie", "Movie" => File.basename(md[1]), "Year" => md[2]]
-          break
+    #if we don't have a movie and we don't have a seastr and we have a parent dir string, check the parent...
+    if(is_movie == false && parentdir_str != nil)
+      #see if the parentdir_str has /season ([0-9]+)/
+      if((md = /season ([0-9]+)/i.match(parentdir_str)) != nil)
+        if(grandparentdir_str != nil)
+          parentdir_str = grandparentdir_str
         end
-      else
-        #dbug "Movie NOT Matched: " << fn
+        if(seastr == '0')
+          seastr = md[1]
+        end
       end
     end
-    $SHOW_REGXS.each do |regx|
-      md = regx.match(s)
-      if(md)
-        dbug "Show Matched: " << search_path 
-        dbug "\t Series: " << File.basename(md[1]) << ";\tSeason: " << md[2] << ";\tEpisode: " << md[3]
-        results << Hash["Type" => "Show", "Series" => File.basename(md[1]), "Season" => md[2], "Episode" => md[3]]
-        break
-      else
-        #dbug "Show NOT Matched: " << fn
-      end
+    
+    #if we don't have a movie and we don't have a serstr and we have a parent dir string, make the serstr tha parent...
+    if(is_movie == false && serstr == '' && parentdir_str != nil)
+      serstr = parentdir_str
     end
-    if(results.empty?)
-      dbug "UNABLE TO MATCH: " << s
-      dbug "Do movie search."
-      rtn.concat(Search.movie_search(s, File.basename(s), "0"))
+    rtn = []
+    movstr = ''
+    yearstr= ''
+    
+    #if we have a movie, do a movie search
+    if(is_movie)
+      if((md = /(.+) {0,1}\({0,1}([0-9]{4})\){0,1}/i.match(basestr)) != nil)
+        movstr = md[1].chomp("(")
+        movstr.chomp!(" ")
+        yearstr = md[2].chomp
+      else
+        movstr = basestr
+      end
+      rtn = Search.movie_search(basestr, movstr, yearstr)
+    
+    #otherwise do a show search
     else
-      results.each do |res|
-        if(res["Type"] == "Movie")
-          rtn.concat(Search.movie_search(s, res["Movie"], res['Year']))
-        elsif(res['Type'] == "Show")
-          rtn.concat(Search.show_search(s, res['Series'], res['Season'], res["Episode"]))
-        end
-      end
+      rtn = Search.show_search(basestr, serstr, seastr, epistr)
     end
+    
+    #if we still have nothing, and we did not do a movie search...
+    if(rtn.count == 0 && !is_movie)
+      rtn = Search.movie_search(basestr)
+    end
+
     #now if it is a use_itunes request, 
     if(use_itunes == 1)
       #get the images from itunes
@@ -82,6 +137,7 @@ class Search
         end
       end
     end
+    
     return rtn
   end
   
@@ -174,3 +230,4 @@ class Search
     end
   end
 end
+  

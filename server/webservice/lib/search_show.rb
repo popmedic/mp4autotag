@@ -11,7 +11,11 @@ class SearchShow
   def SearchShow::search(search)
     #set search episode number and season number
     s_epinum = search['epistr'].to_i
-    s_seanum = search['seastr'].to_i
+    if(search['seastr'] == '')
+      s_seanum = 1
+    else
+      s_seanum = search['seastr'].to_i
+    end   
     seriesname = search["serstr"]
     #search results catagories
     r1m = []
