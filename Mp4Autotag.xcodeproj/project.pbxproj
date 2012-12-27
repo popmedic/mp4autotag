@@ -43,9 +43,6 @@
 		0A9CB319166918CB007478FB /* POPAutomatedAutotagQueueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CB318166918CA007478FB /* POPAutomatedAutotagQueueView.m */; };
 		0A9CB31C16692AC6007478FB /* POPProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CB31B16692AC6007478FB /* POPProgressWindow.m */; };
 		0A9CB321166959EF007478FB /* POPAutomatedAutotagPropertyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CB320166959EE007478FB /* POPAutomatedAutotagPropertyView.m */; };
-		0A9FF4E61659A55E009B044C /* mp4art in Resources */ = {isa = PBXBuildFile; fileRef = 0A9FF4E31659A55E009B044C /* mp4art */; };
-		0A9FF4E71659A55E009B044C /* mp4info in Resources */ = {isa = PBXBuildFile; fileRef = 0A9FF4E41659A55E009B044C /* mp4info */; };
-		0A9FF4E81659A55E009B044C /* mp4tags in Resources */ = {isa = PBXBuildFile; fileRef = 0A9FF4E51659A55E009B044C /* mp4tags */; };
 		0AAC9B97161718980067F41E /* POPLoadingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC9B96161718980067F41E /* POPLoadingWindow.m */; };
 		0AAC9B9C16173DB30067F41E /* POPMp4FileTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC9B9B16173DB30067F41E /* POPMp4FileTag.m */; };
 		0AD663751614B4D2005EA39C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD663741614B4D2005EA39C /* Cocoa.framework */; };
@@ -120,9 +117,6 @@
 		0A9CB31B16692AC6007478FB /* POPProgressWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPProgressWindow.m; sourceTree = "<group>"; };
 		0A9CB31F166959EE007478FB /* POPAutomatedAutotagPropertyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAutomatedAutotagPropertyView.h; sourceTree = "<group>"; };
 		0A9CB320166959EE007478FB /* POPAutomatedAutotagPropertyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPAutomatedAutotagPropertyView.m; sourceTree = "<group>"; };
-		0A9FF4E31659A55E009B044C /* mp4art */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mp4art; path = bin/mp4art; sourceTree = "<group>"; };
-		0A9FF4E41659A55E009B044C /* mp4info */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mp4info; path = bin/mp4info; sourceTree = "<group>"; };
-		0A9FF4E51659A55E009B044C /* mp4tags */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mp4tags; path = bin/mp4tags; sourceTree = "<group>"; };
 		0AAC9B95161718980067F41E /* POPLoadingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPLoadingWindow.h; sourceTree = "<group>"; };
 		0AAC9B96161718980067F41E /* POPLoadingWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPLoadingWindow.m; sourceTree = "<group>"; };
 		0AAC9B9A16173DB30067F41E /* POPMp4FileTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPMp4FileTag.h; sourceTree = "<group>"; };
@@ -182,23 +176,11 @@
 			name = Artwork;
 			sourceTree = "<group>";
 		};
-		0AAC9BA31617564C0067F41E /* Binaries */ = {
-			isa = PBXGroup;
-			children = (
-				0A9FF4E31659A55E009B044C /* mp4art */,
-				0A9FF4E41659A55E009B044C /* mp4info */,
-				0A9FF4E51659A55E009B044C /* mp4tags */,
-			);
-			name = Binaries;
-			path = Mp4Autotag;
-			sourceTree = "<group>";
-		};
 		0AD663651614B4D1005EA39C = {
 			isa = PBXGroup;
 			children = (
 				0A5BDF39166FC90B00E537FF /* mp4autotag.icns */,
 				0AAC9B99161718B60067F41E /* Artwork */,
-				0AAC9BA31617564C0067F41E /* Binaries */,
 				0AD6637B1614B4D2005EA39C /* Supporting Files */,
 				0AD6637A1614B4D2005EA39C /* Mp4Autotag */,
 				0AD663731614B4D2005EA39C /* Frameworks */,
@@ -353,9 +335,6 @@
 				0A3220E016599CB700DE3601 /* plus.png in Resources */,
 				0A3220E116599CB700DE3601 /* save.png in Resources */,
 				0A3220E216599CB700DE3601 /* search.png in Resources */,
-				0A9FF4E61659A55E009B044C /* mp4art in Resources */,
-				0A9FF4E71659A55E009B044C /* mp4info in Resources */,
-				0A9FF4E81659A55E009B044C /* mp4tags in Resources */,
 				0A5BDF2E166FC8BD00E537FF /* autotag_all@2x.png in Resources */,
 				0A5BDF2F166FC8BD00E537FF /* autotag@2x.png in Resources */,
 				0A5BDF30166FC8BD00E537FF /* dropfilehere@2x.png in Resources */,
@@ -480,6 +459,8 @@
 		0AD6638F1614B4D3005EA39C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Mp4Autotag/Mp4Autotag.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -487,8 +468,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mp4Autotag/Mp4Autotag-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include;
 				INFOPLIST_FILE = "Mp4Autotag/Mp4Autotag-Info.plist";
+				"LIBRARY_SEARCH_PATHS[arch=*]" = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				"OTHER_LDFLAGS[arch=*]" = "-lmp4v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -497,6 +481,8 @@
 		0AD663901614B4D3005EA39C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Mp4Autotag/Mp4Autotag.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -504,8 +490,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mp4Autotag/Mp4Autotag-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include;
 				INFOPLIST_FILE = "Mp4Autotag/Mp4Autotag-Info.plist";
+				"LIBRARY_SEARCH_PATHS[arch=*]" = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				"OTHER_LDFLAGS[arch=*]" = "-lmp4v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
