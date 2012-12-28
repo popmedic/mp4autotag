@@ -239,8 +239,8 @@
 	{
 		[rtn setCoverArtPieces: v2tags->artworkCount];
 		NSData* artData = [NSData dataWithBytes:v2tags->artwork->data length:v2tags->artwork->size];
-		[rtn setImage:[[NSImage alloc] initWithData:artData]]; /* artwork != NULL when artworkCount > 0 */
-	}
+		[rtn setImage:[[NSImage alloc] initWithData:artData]]; 
+	 }
 	MP4TagsFree(v2tags);
 	MP4Close(v2file, 0);
 	return rtn;
