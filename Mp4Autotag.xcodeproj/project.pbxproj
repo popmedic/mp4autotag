@@ -51,9 +51,14 @@
 		0AD663851614B4D2005EA39C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0AD663831614B4D2005EA39C /* Credits.rtf */; };
 		0AD663881614B4D2005EA39C /* POPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD663871614B4D2005EA39C /* POPAppDelegate.m */; };
 		0AD6638B1614B4D3005EA39C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD663891614B4D3005EA39C /* MainMenu.xib */; };
+<<<<<<< HEAD
 		0AFFFC24168D5AF2008ED1B4 /* mp4art in Resources */ = {isa = PBXBuildFile; fileRef = 0AFFFC21168D5AF2008ED1B4 /* mp4art */; };
 		0AFFFC25168D5AF2008ED1B4 /* mp4info in Resources */ = {isa = PBXBuildFile; fileRef = 0AFFFC22168D5AF2008ED1B4 /* mp4info */; };
 		0AFFFC26168D5AF2008ED1B4 /* mp4tags in Resources */ = {isa = PBXBuildFile; fileRef = 0AFFFC23168D5AF2008ED1B4 /* mp4tags */; };
+=======
+		0AFF0095168DEAD4008ED1B4 /* libmp4v2.2.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */; };
+		0AFF009F168DFFE3008ED1B4 /* POPmp4v2dylibloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF009E168DFFE3008ED1B4 /* POPmp4v2dylibloader.m */; };
+>>>>>>> loop-back-for-master
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -137,9 +142,15 @@
 		0AD663861614B4D2005EA39C /* POPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = POPAppDelegate.h; sourceTree = "<group>"; };
 		0AD663871614B4D2005EA39C /* POPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POPAppDelegate.m; sourceTree = "<group>"; };
 		0AD6638A1614B4D3005EA39C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		0AFFFC21168D5AF2008ED1B4 /* mp4art */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mp4art; path = Mp4Autotag/bin/mp4art; sourceTree = "<group>"; };
 		0AFFFC22168D5AF2008ED1B4 /* mp4info */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mp4info; path = Mp4Autotag/bin/mp4info; sourceTree = "<group>"; };
 		0AFFFC23168D5AF2008ED1B4 /* mp4tags */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mp4tags; path = Mp4Autotag/bin/mp4tags; sourceTree = "<group>"; };
+=======
+		0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmp4v2.2.dylib; sourceTree = "<group>"; };
+		0AFF009D168DFFE3008ED1B4 /* POPmp4v2dylibloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPmp4v2dylibloader.h; sourceTree = "<group>"; };
+		0AFF009E168DFFE3008ED1B4 /* POPmp4v2dylibloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPmp4v2dylibloader.m; sourceTree = "<group>"; };
+>>>>>>> loop-back-for-master
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +196,10 @@
 		0AD663651614B4D1005EA39C = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+=======
+				0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */,
+>>>>>>> loop-back-for-master
 				0A5BDF39166FC90B00E537FF /* mp4autotag.icns */,
 				0AFFFC20168D5AD1008ED1B4 /* bin */,
 				0AAC9B99161718B60067F41E /* Artwork */,
@@ -261,6 +276,8 @@
 				0A6581F516192A6800959142 /* POPXMLReader.m */,
 				0A22026A1644A35E00067C31 /* fixmoov.c */,
 				0A22026C1644A43D00067C31 /* fixmoov.h */,
+				0AFF009D168DFFE3008ED1B4 /* POPmp4v2dylibloader.h */,
+				0AFF009E168DFFE3008ED1B4 /* POPmp4v2dylibloader.m */,
 			);
 			path = Mp4Autotag;
 			sourceTree = "<group>";
@@ -340,6 +357,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AFF0095168DEAD4008ED1B4 /* libmp4v2.2.dylib in Resources */,
 				0AD6637F1614B4D2005EA39C /* InfoPlist.strings in Resources */,
 				0AD663851614B4D2005EA39C /* Credits.rtf in Resources */,
 				0AD6638B1614B4D3005EA39C /* MainMenu.xib in Resources */,
@@ -394,6 +412,7 @@
 				0A9CB319166918CB007478FB /* POPAutomatedAutotagQueueView.m in Sources */,
 				0A9CB31C16692AC6007478FB /* POPProgressWindow.m in Sources */,
 				0A9CB321166959EF007478FB /* POPAutomatedAutotagPropertyView.m in Sources */,
+				0AFF009F168DFFE3008ED1B4 /* POPmp4v2dylibloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,8 +512,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mp4Autotag/Mp4Autotag-Prefix.pch";
 				GCC_VERSION = "";
-				HEADER_SEARCH_PATHS = /usr/local/include;
-				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include;
+				HEADER_SEARCH_PATHS = (
+					"\"/usr/local/include\"",
+					"\"$(SRCROOT)\"",
+				);
 				INFOPLIST_FILE = "Mp4Autotag/Mp4Autotag-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -523,8 +544,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mp4Autotag/Mp4Autotag-Prefix.pch";
 				GCC_VERSION = "";
-				HEADER_SEARCH_PATHS = /usr/local/include;
-				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include;
+				HEADER_SEARCH_PATHS = (
+					"\"/usr/local/include\"",
+					"\"$(SRCROOT)\"",
+				);
 				INFOPLIST_FILE = "Mp4Autotag/Mp4Autotag-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

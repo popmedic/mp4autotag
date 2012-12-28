@@ -7,7 +7,7 @@
 //
 
 #import "POPMp4FileTag.h"
-#include "mp4v2/mp4v2.h"
+#import "POPmp4v2dylibloader.h"
 #import "POPFileMan.h"
 #import "POPTask.h"
 #import "POPImage.h"
@@ -194,6 +194,7 @@
 	
 	POPMp4FileTag* rtn = [self init];
 	_filename = filename;
+<<<<<<< HEAD
 	NSString* mp4info_path = [[NSBundle mainBundle] pathForResource:@"mp4info" ofType:nil];
 	NSLog(@"mp4info path: %@", mp4info_path);
 	NSError *error;
@@ -205,6 +206,47 @@
 		@throw [NSException exceptionWithName:@"FileNotMp4"
 									   reason:reason
 									 userInfo:nil];
+=======
+	
+	MP4FileHandle v2file = _MP4Modify([_filename cStringUsingEncoding:NSUTF8StringEncoding], 0);
+    if(v2file == MP4_INVALID_FILE_HANDLE) {
+        @throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"MP4Modify failed."
+									 userInfo:nil];
+    }
+	const MP4Tags* v2tags = _MP4TagsAlloc();
+	_MP4TagsFetch(v2tags, v2file);
+	if(v2tags->name)[rtn setProperty: @"Name" value:[NSString stringWithCString: v2tags->name encoding:NSUTF8StringEncoding]];
+	if(v2tags->album)[rtn setProperty: @"Album" value:[NSString stringWithCString: v2tags->album encoding:NSUTF8StringEncoding]];
+	if(v2tags->artist)[rtn setProperty: @"Artist" value:[NSString stringWithCString: v2tags->artist encoding:NSUTF8StringEncoding]];
+	if(v2tags->albumArtist)[rtn setProperty: @"Album Artist" value:[NSString stringWithCString: v2tags->albumArtist encoding:NSUTF8StringEncoding]];
+	if(v2tags->grouping)[rtn setProperty: @"Grouping" value:[NSString stringWithCString: v2tags->grouping encoding:NSUTF8StringEncoding]];
+	if(v2tags->composer)[rtn setProperty: @"Composer" value:[NSString stringWithCString: v2tags->composer encoding:NSUTF8StringEncoding]];
+	if(v2tags->comments)[rtn setProperty: @"Comments" value:[NSString stringWithCString: v2tags->comments encoding:NSUTF8StringEncoding]];
+	if(v2tags->genre)[rtn setProperty: @"Genre" value:[NSString stringWithCString: v2tags->genre encoding:NSUTF8StringEncoding]];
+	if(v2tags->releaseDate)[rtn setProperty: @"Release Date" value:[NSString stringWithCString: v2tags->releaseDate encoding:NSUTF8StringEncoding]];
+	if(v2tags->track)[rtn setProperty: @"Track" value:[NSString stringWithFormat:@"%u", v2tags->track->index]];
+	if(v2tags->track)[rtn setProperty: @"Tracks" value:[NSString stringWithFormat:@"%u", v2tags->track->index]];
+	if(v2tags->disk)[rtn setProperty: @"Disk" value:[NSString stringWithFormat:@"%u", v2tags->disk->index]];
+	if(v2tags->disk)[rtn setProperty: @"Disks" value:[NSString stringWithFormat:@"%u", v2tags->disk->total]];
+	if(v2tags->tempo)[rtn setProperty: @"BPM" value:[NSString stringWithFormat:@"%u", *v2tags->tempo]];
+	if(v2tags->tvShow)[rtn setProperty: @"TV Show" value:[NSString stringWithCString: v2tags->tvShow encoding:NSUTF8StringEncoding]];
+	if(v2tags->tvEpisodeID)[rtn setProperty: @"TV Episode Number" value:[NSString stringWithCString: v2tags->tvEpisodeID encoding:NSUTF8StringEncoding]];
+	if(v2tags->tvNetwork)[rtn setProperty: @"TV Network" value:[NSString stringWithCString: v2tags->tvNetwork encoding:NSUTF8StringEncoding]];
+	if(v2tags->tvEpisode)[rtn setProperty: @"TV Episode" value:[NSString stringWithFormat:@"%u", *v2tags->tvEpisode]];
+	if(v2tags->tvSeason)[rtn setProperty: @"TV Season" value:[NSString stringWithFormat:@"%u", *v2tags->tvSeason]];
+	if(v2tags->description)[rtn setProperty: @"Short Description" value:[NSString stringWithCString: v2tags->description encoding:NSUTF8StringEncoding]];
+	if(v2tags->longDescription)[rtn setProperty: @"Long Description" value:[NSString stringWithCString: v2tags->longDescription encoding:NSUTF8StringEncoding]];
+	if(v2tags->lyrics)[rtn setProperty: @"Lyrics" value:[NSString stringWithCString: v2tags->lyrics encoding:NSUTF8StringEncoding]];
+	if(v2tags->copyright)[rtn setProperty: @"Copyright" value:[NSString stringWithCString: v2tags->copyright encoding:NSUTF8StringEncoding]];
+	if(v2tags->encodingTool)[rtn setProperty: @"Encoded with" value:[NSString stringWithCString: v2tags->encodingTool encoding:NSUTF8StringEncoding]];
+	if(v2tags->encodedBy)[rtn setProperty: @"Encoded by" value:[NSString stringWithCString: v2tags->encodedBy encoding:NSUTF8StringEncoding]];
+	if(v2tags->hdVideo)[rtn setProperty: @"HD Video" value:[NSString stringWithFormat:@"%u", *v2tags->hdVideo]];
+	if(v2tags->mediaType){
+		if(*v2tags->mediaType == 10) [rtn setProperty: @"Media Type" value:@"tvshow"];
+		else if(*v2tags->mediaType == 6) [rtn setProperty: @"Media Type" value:@"music"];
+		else [rtn setProperty: @"Media Type" value:@"movie"];
+>>>>>>> loop-back-for-master
 	}
 	[info enumerateLinesUsingBlock: ^(NSString *line, BOOL *stop) {
 		if(line != nil && [line compare:@""] != 0) {
@@ -269,6 +311,7 @@
 	
 	if([rtn coverArtPieces] > 0)
 	{
+<<<<<<< HEAD
 		info = [POPTask launchedWithLaunchPathAndWaitReturnStdio:[[NSBundle mainBundle] pathForResource:@"mp4art" ofType:nil] options:[NSArray arrayWithObjects: @"--extract", filename, nil]];
 		NSString* imgfn = nil;
 		if([[NSFileManager defaultManager] fileExistsAtPath:[[filename stringByDeletingPathExtension] stringByAppendingString:@".art[0].jpg"]])
@@ -285,6 +328,14 @@
 			[[NSFileManager defaultManager] removeItemAtPath:imgfn error:&error];
 		}
 	}
+=======
+		[rtn setCoverArtPieces: v2tags->artworkCount];
+		NSData* artData = [NSData dataWithBytes:v2tags->artwork->data length:v2tags->artwork->size];
+		[rtn setImage:[[NSImage alloc] initWithData:artData]]; 
+	 }
+	_MP4TagsFree(v2tags);
+	_MP4Close(v2file, 0);
+>>>>>>> loop-back-for-master
 	return rtn;
 	
 	/*if(![[NSFileManager defaultManager] fileExistsAtPath:filename])
@@ -471,6 +522,92 @@
 	 return true;*/
 }
 
+<<<<<<< HEAD
+=======
+-(bool) save {
+	MP4FileHandle v2file = _MP4Modify([_filename cStringUsingEncoding:NSUTF8StringEncoding], 0);
+    if(v2file == MP4_INVALID_FILE_HANDLE) {
+		NSLog(@"MP4Modify failed.");
+		return false;
+    }
+	const MP4Tags* v2tags = _MP4TagsAlloc();
+	
+	_MP4TagsSetName(v2tags, [[self property:@"Name"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetArtist(v2tags, [[self property:@"Artist"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetComposer(v2tags, [[self property:@"Composer"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetEncodingTool(v2tags, [[self property:@"Encoded with"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetEncodedBy(v2tags, [[self property:@"Encoded by"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetReleaseDate(v2tags, [[self property:@"Release Date"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetAlbum(v2tags, [[self property:@"Album"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetGenre(v2tags, [[self property:@"Genre"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetGrouping(v2tags, [[self property:@"Grouping"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetComments(v2tags, [[self property:@"Comments"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetAlbumArtist(v2tags, [[self property:@"Album Artist"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetCopyright(v2tags, [[self property:@"Copyright"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetTVShow(v2tags, [[self property:@"TV Show"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetTVNetwork(v2tags, [[self property:@"TV Network"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetTVEpisodeID(v2tags, [[self property:@"TV Episode Number"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetDescription(v2tags, [[self property:@"Short Description"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetLongDescription(v2tags, [[self property:@"Long Description"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetXID(v2tags, [[self property:@"cnID"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetLyrics(v2tags, [[self property:@"Lyrics"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	
+	uint8_t n8;
+	n8 = [[self property:@"HD Video"] intValue];
+	_MP4TagsSetHDVideo(v2tags, &n8);
+	
+	uint16_t n16;
+	n16 = [[self property:@"BPM"] intValue];
+	_MP4TagsSetTempo(v2tags, &n16);
+	
+	uint32_t n32;
+	n32 = [[self property:@"TV Episode"] intValue];
+	_MP4TagsSetTVEpisode(v2tags, &n32);
+	n32 = [[self property:@"TV Season"] intValue];
+	_MP4TagsSetTVSeason(v2tags, &n32);
+	
+	MP4TagTrack track;
+	track.index = [[self property:@"Track"] intValue];
+	track.total = [[self property:@"Tracks"] intValue];
+	_MP4TagsSetTrack(v2tags, &track);
+	MP4TagDisk disk;
+	disk.index = [[self property:@"Disk"] intValue];
+	disk.total = [[self property:@"Disks"] intValue];
+	_MP4TagsSetDisk(v2tags, &disk);
+	
+	MP4TagArtwork artwork;
+	NSData* artworkData = [[self image] TIFFRepresentation];
+	NSBitmapImageRep *artworkRep = [NSBitmapImageRep imageRepWithData:artworkData];
+    NSDictionary *artworkProps = [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:1.0] forKey:NSImageCompressionFactor];
+    artworkData = [artworkRep representationUsingType:NSJPEGFileType properties:artworkProps];
+	artwork.type = 0x13;
+	artwork.size = (unsigned int)[artworkData length];
+	artwork.data = (void*)[artworkData bytes];
+	_MP4TagsAddArtwork(v2tags, &artwork);
+	
+	if([[self property:@"Media Type"] compare:@"tvshow"] == 0)
+	{
+		n8 = 0x10;
+	}
+	else if([[self property:@"Media Type"] compare:@"music"] == 0)
+	{
+		n8 = 0x06;
+	}
+	else
+	{
+		n8 = 0x09;
+	}
+	_MP4TagsSetMediaType(v2tags, &n8);
+	
+    _MP4TagsStore(v2tags, v2file);
+	
+    _MP4TagsFree(v2tags);
+    _MP4Close(v2file, 0);
+	
+	return true;
+}
+
+>>>>>>> loop-back-for-master
 -(NSString*) property:(NSString*)prop {
 	return [[_properties valueForKey:prop] valueForKey:@"value"];
 }

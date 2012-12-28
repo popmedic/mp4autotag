@@ -7,8 +7,10 @@
 //
 
 #import "POPAppDelegate.h"
+#import "POPmp4v2dylibloader.h"
 #import "POPMp4FileTagSearch.h"
 #import "fixmoov.h"
+#include <dlfcn.h>
 
 @implementation POPAppDelegate
 {
@@ -111,7 +113,7 @@
 	}
 	//refresh properities
 	[self refreshButtons];
-
+	[POPmp4v2dylibloader loadMp4v2Lib:[[NSBundle mainBundle] pathForResource:@"libmp4v2.2.dylib" ofType:nil]];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
