@@ -51,7 +51,11 @@
 		0AD663851614B4D2005EA39C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0AD663831614B4D2005EA39C /* Credits.rtf */; };
 		0AD663881614B4D2005EA39C /* POPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD663871614B4D2005EA39C /* POPAppDelegate.m */; };
 		0AD6638B1614B4D3005EA39C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD663891614B4D3005EA39C /* MainMenu.xib */; };
-		0AFFFC12168D539B008ED1B4 /* libmp4v2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFFFC11168D539B008ED1B4 /* libmp4v2.dylib */; };
+		0AFF008F168D6C64008ED1B4 /* libmp4v2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */; };
+		0AFF0090168D6C64008ED1B4 /* libmp4v2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFF008E168D6C64008ED1B4 /* libmp4v2.dylib */; };
+		0AFF0092168D6D00008ED1B4 /* libmp4v2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFF0091168D6D00008ED1B4 /* libmp4v2.a */; };
+		0AFF0093168DE7DA008ED1B4 /* libmp4v2.2.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */; };
+		0AFF0094168DE7DA008ED1B4 /* libmp4v2.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0AFF008E168D6C64008ED1B4 /* libmp4v2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +65,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0AFF0093168DE7DA008ED1B4 /* libmp4v2.2.dylib in CopyFiles */,
+				0AFF0094168DE7DA008ED1B4 /* libmp4v2.dylib in CopyFiles */,
 				0A85B7BE165E933400D5127E /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,7 +141,9 @@
 		0AD663861614B4D2005EA39C /* POPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = POPAppDelegate.h; sourceTree = "<group>"; };
 		0AD663871614B4D2005EA39C /* POPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POPAppDelegate.m; sourceTree = "<group>"; };
 		0AD6638A1614B4D3005EA39C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		0AFFFC11168D539B008ED1B4 /* libmp4v2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmp4v2.dylib; path = ../../../../usr/local/lib/libmp4v2.dylib; sourceTree = "<group>"; };
+		0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmp4v2.2.dylib; sourceTree = "<group>"; };
+		0AFF008E168D6C64008ED1B4 /* libmp4v2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmp4v2.dylib; sourceTree = "<group>"; };
+		0AFF0091168D6D00008ED1B4 /* libmp4v2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp4v2.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +153,9 @@
 			files = (
 				0AD663751614B4D2005EA39C /* Cocoa.framework in Frameworks */,
 				0A85B7BB165E92D200D5127E /* Sparkle.framework in Frameworks */,
-				0AFFFC12168D539B008ED1B4 /* libmp4v2.dylib in Frameworks */,
+				0AFF008F168D6C64008ED1B4 /* libmp4v2.2.dylib in Frameworks */,
+				0AFF0090168D6C64008ED1B4 /* libmp4v2.dylib in Frameworks */,
+				0AFF0092168D6D00008ED1B4 /* libmp4v2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +192,9 @@
 		0AD663651614B4D1005EA39C = {
 			isa = PBXGroup;
 			children = (
-				0AFFFC11168D539B008ED1B4 /* libmp4v2.dylib */,
+				0AFF0091168D6D00008ED1B4 /* libmp4v2.a */,
+				0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */,
+				0AFF008E168D6C64008ED1B4 /* libmp4v2.dylib */,
 				0A5BDF39166FC90B00E537FF /* mp4autotag.icns */,
 				0AAC9B99161718B60067F41E /* Artwork */,
 				0AD6637B1614B4D2005EA39C /* Supporting Files */,
@@ -481,7 +493,6 @@
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include;
 				INFOPLIST_FILE = "Mp4Autotag/Mp4Autotag-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					/usr/local/lib,
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
@@ -512,7 +523,6 @@
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include;
 				INFOPLIST_FILE = "Mp4Autotag/Mp4Autotag-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					/usr/local/lib,
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);

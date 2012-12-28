@@ -25,7 +25,7 @@
 	<key>CFBundleVersion</key>
 	<string>0.0.7</string>
 	<key>DTCompiler</key>
-	<string>com.apple.compilers.llvm.clang.1_0</string>
+	<string></string>
 	<key>DTPlatformBuild</key>
 	<string>4G2008a</string>
 	<key>DTPlatformVersion</key>
