@@ -59,7 +59,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	// Insert code here to initialize your application
-	[[self loadWnd] show:@"Initializing..."];
+	//[[self loadWnd] show:@"Initializing..."];
 	mp4FileTagTable = [[POPMp4FileTagTable alloc] initWithParent:self];
 	mp4SearchFileTagTable = nil;
 	[[self mp4FileTagTableView] setDataSource:(id<NSTableViewDataSource>)mp4FileTagTable];
@@ -114,8 +114,8 @@
 	}
 	//refresh properities
 	[self refreshButtons];
-	[POPmp4v2dylibloader loadMp4v2Lib:[[NSBundle mainBundle] pathForResource:@"libmp4v2.2.dylib" ofType:nil]];
-	[[self loadWnd] hide];
+	
+	//[[self loadWnd] hide];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
@@ -139,6 +139,7 @@
 
 -(void)awakeFromNib
 {
+	[POPmp4v2dylibloader loadMp4v2Lib:[[NSBundle mainBundle] pathForResource:@"libmp4v2.2.dylib" ofType:nil]];
 	[[self mp4FileTagTableView] registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, nil]];
 	[[self dropFileHereImageWell] registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, nil]];
 }
