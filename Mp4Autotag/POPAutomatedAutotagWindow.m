@@ -137,6 +137,7 @@
 		NSArray *tags = [NSArray arrayWithObjects:otag, ntag, nil];
 		[results addObject:tags];
 		[[self queueView] reloadData];
+		[[self queueView] display];
 	}
 	mp4SearchFileTagTable = nil;
 	[[self progressWindow] show:@"Done..." progress:100];

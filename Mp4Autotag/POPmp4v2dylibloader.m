@@ -74,9 +74,9 @@
 	_MP4TagsSetITunesAccount     = dlsym(mp4v2_lib_handle, "MP4TagsSetITunesAccount");
 	_MP4TagsSetITunesAccountType = dlsym(mp4v2_lib_handle, "MP4TagsSetITunesAccountType");
 	_MP4TagsSetITunesCountry     = dlsym(mp4v2_lib_handle, "MP4TagsSetITunesCountry");
-	_MP4TagsSetContentID         = dlsym(mp4v2_lib_handle, "MP4TagsSetSetContentID");
+	/*_MP4TagsSetContentID         = dlsym(mp4v2_lib_handle, "MP4TagsSetSetContentID");
 	_MP4TagsSetArtistID          = dlsym(mp4v2_lib_handle, "MP4TagsSetSetArtistID");
-	_MP4TagsSetPlaylistID        = dlsym(mp4v2_lib_handle, "MP4TagsSetSetPlaylistID");
+	_MP4TagsSetPlaylistID        = dlsym(mp4v2_lib_handle, "MP4TagsSetSetPlaylistID");*/
 	_MP4TagsSetGenreID           = dlsym(mp4v2_lib_handle, "MP4TagsSetGenreID");
 	_MP4TagsSetComposerID        = dlsym(mp4v2_lib_handle, "MP4TagsSetComposerID");
 	_MP4TagsSetXID               = dlsym(mp4v2_lib_handle, "MP4TagsSetXID");
@@ -386,6 +386,8 @@
 									   reason:@"Unable to load function MP4TagsSetITunesCountry"
 									 userInfo:nil];
 	}
+	/*
+	 NOT WORKING FOR SOME REASON?!?!
 	if(!_MP4TagsSetContentID)
 	{
 		@throw [NSException exceptionWithName:@"FileNotFoundException"
@@ -404,6 +406,8 @@
 									   reason:@"Unable to load function MP4TagsSetPlaylistID"
 									 userInfo:nil];
 	}
+	 
+	 */
 	if(!_MP4TagsSetGenreID)
 	{
 		@throw [NSException exceptionWithName:@"FileNotFoundException"

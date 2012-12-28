@@ -28,6 +28,7 @@
 -(void) addMsg:(NSString*)msg {
 	[msgStack addObject:msg];
 	[[self msgLabel] setStringValue:msg];
+	[[self msgLabel] display];
 }
 
 -(void) hide {
@@ -47,7 +48,6 @@
 
 -(void) show:(NSString*)msg {
 	[self addMsg:msg];
-	[[self msgLabel] setNeedsDisplay:YES];
 	if(session == nil)
 	{
 		session = [NSApp beginModalSessionForWindow:self];

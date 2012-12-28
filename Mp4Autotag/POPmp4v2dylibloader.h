@@ -60,9 +60,9 @@ bool (*_MP4TagsSetGapless        ) ( const MP4Tags*, const uint8_t* );
 bool (*_MP4TagsSetITunesAccount    ) ( const MP4Tags*, const char* );
 bool (*_MP4TagsSetITunesAccountType) ( const MP4Tags*, const uint8_t* );
 bool (*_MP4TagsSetITunesCountry    ) ( const MP4Tags*, const uint32_t* );
-bool (*_MP4TagsSetContentID        ) ( const MP4Tags*, const uint32_t* );
+/*bool (*_MP4TagsSetContentID        ) ( const MP4Tags*, const uint32_t* );
 bool (*_MP4TagsSetArtistID         ) ( const MP4Tags*, const uint32_t* );
-bool (*_MP4TagsSetPlaylistID       ) ( const MP4Tags*, const uint64_t* );
+bool (*_MP4TagsSetPlaylistID       ) ( const MP4Tags*, const uint64_t* );*/
 bool (*_MP4TagsSetGenreID          ) ( const MP4Tags*, const uint32_t* );
 bool (*_MP4TagsSetComposerID       ) ( const MP4Tags*, const uint32_t* );
 bool (*_MP4TagsSetXID              ) ( const MP4Tags*, const char* );

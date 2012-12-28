@@ -19,11 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.0.7</string>
+	<string>0.1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.0.7</string>
+	<string>0.1.0</string>
 	<key>DTCompiler</key>
 	<string></string>
 	<key>DTPlatformBuild</key>
@@ -39,7 +39,7 @@
 	<key>DTXcodeBuild</key>
 	<string>4G2008a</string>
 	<key>LSApplicationCategoryType</key>
-	<string>public.app-category.video</string>
+	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.7</string>
 	<key>NSHumanReadableCopyright</key>
