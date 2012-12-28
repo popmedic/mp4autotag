@@ -59,7 +59,6 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	// Insert code here to initialize your application
-	[POPmp4v2dylibloader loadMp4v2Lib:[[NSBundle mainBundle] pathForResource:@"libmp4v2.2.dylib" ofType:nil]];
 	mp4FileTagTable = [[POPMp4FileTagTable alloc] initWithParent:self];
 	mp4SearchFileTagTable = nil;
 	[[self mp4FileTagTableView] setDataSource:(id<NSTableViewDataSource>)mp4FileTagTable];
@@ -114,7 +113,7 @@
 	}
 	//refresh properities
 	[self refreshButtons];
-
+	[POPmp4v2dylibloader loadMp4v2Lib:[[NSBundle mainBundle] pathForResource:@"libmp4v2.2.dylib" ofType:nil]];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender

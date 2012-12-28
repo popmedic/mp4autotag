@@ -11,49 +11,24 @@
 @implementation POPmp4v2dylibloader
 +(void)loadMp4v2Lib:(NSString*)path
 {
-	void* mp4v2_lib_handle = dlopen([path cStringUsingEncoding:NSUTF8StringEncoding], RTLD_LOCAL|RTLD_LAZY);
+	void* mp4v2_lib_handle;
+	mp4v2_lib_handle = dlopen("libmp4v2.dylib", RTLD_GLOBAL|RTLD_LAZY);
+	if(!mp4v2_lib_handle)
+	{
+		mp4v2_lib_handle = dlopen([path cStringUsingEncoding:NSUTF8StringEncoding], RTLD_GLOBAL|RTLD_LAZY);
+	}
 	if(!mp4v2_lib_handle)
 	{
 		@throw [NSException exceptionWithName:@"FileNotFoundException"
 									   reason:[NSString stringWithFormat:@"Unable to load %@", path]
 									 userInfo:nil];
 	}
-	_MP4Modify = dlsym(mp4v2_lib_handle, "MP4Modify");
-	_MP4TagsAlloc = dlsym(mp4v2_lib_handle, "MP4TagsAlloc");
-	_MP4TagsStore = dlsym(mp4v2_lib_handle, "MP4TagsStore");
-	_MP4TagsFetch = dlsym(mp4v2_lib_handle, "MP4TagsFetch");
-	_MP4TagsFree = dlsym(mp4v2_lib_handle, "MP4TagsFree");
-	_MP4Close = dlsym(mp4v2_lib_handle, "MP4Close");
-	if(!_MP4Modify)
-	{
-		@throw [NSException exceptionWithName:@"FileNotFoundException"
-									   reason:@"Unable to load function MP4Modify"
-									 userInfo:nil];
-	}
-	if(!_MP4TagsAlloc)
-	{
-		@throw [NSException exceptionWithName:@"FileNotFoundException"
-									   reason:@"Unable to load function MP4TagsAlloc"
-									 userInfo:nil];
-	}
-	if(!_MP4TagsFetch)
-	{
-		@throw [NSException exceptionWithName:@"FileNotFoundException"
-									   reason:@"Unable to load function MP4TagsFetch"
-									 userInfo:nil];
-	}
-	if(!_MP4TagsFree)
-	{
-		@throw [NSException exceptionWithName:@"FileNotFoundException"
-									   reason:@"Unable to load function MP4TagsFree"
-									 userInfo:nil];
-	}
-	if(!_MP4Close)
-	{
-		@throw [NSException exceptionWithName:@"FileNotFoundException"
-									   reason:@"Unable to load function MP4Close"
-									 userInfo:nil];
-	}
+	_MP4Modify					 = dlsym(mp4v2_lib_handle, "MP4Modify");
+	_MP4TagsAlloc                = dlsym(mp4v2_lib_handle, "MP4TagsAlloc");
+	_MP4TagsStore                = dlsym(mp4v2_lib_handle, "MP4TagsStore");
+	_MP4TagsFetch                = dlsym(mp4v2_lib_handle, "MP4TagsFetch");
+	_MP4TagsFree                 = dlsym(mp4v2_lib_handle, "MP4TagsFree");
+	_MP4Close                    = dlsym(mp4v2_lib_handle, "MP4Close");
 	_MP4TagsSetName              = dlsym(mp4v2_lib_handle, "MP4TagsSetName");
 	_MP4TagsSetArtist            = dlsym(mp4v2_lib_handle, "MP4TagsSetArtist");
 	_MP4TagsSetAlbumArtist       = dlsym(mp4v2_lib_handle, "MP4TagsSetAlbumArtist");
@@ -105,5 +80,347 @@
 	_MP4TagsSetGenreID           = dlsym(mp4v2_lib_handle, "MP4TagsSetGenreID");
 	_MP4TagsSetComposerID        = dlsym(mp4v2_lib_handle, "MP4TagsSetComposerID");
 	_MP4TagsSetXID               = dlsym(mp4v2_lib_handle, "MP4TagsSetXID");
+	if(!_MP4Modify)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4Modify"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsAlloc)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsAlloc"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsFetch)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsFetch"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsStore)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsStore"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsFree)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsFree"
+									 userInfo:nil];
+	}
+	if(!_MP4Close)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4Close"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetName)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetName"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetArtist)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetArtist"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetAlbumArtist)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetAlbumArtist"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetAlbum)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetAlbum"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetGrouping)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetGrouping"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetComposer)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetComposer"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetComments)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetComments"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetGenre)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetGenre"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetGenreType)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetGenreType"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetReleaseDate)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetReleaseDate"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetTrack)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetTrack"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetDisk)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetDisk"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetTempo)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetTempo"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetCompilation)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetCompilation"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetTVShow)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetTVShow"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetTVNetwork)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetTVNetwork"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetTVEpisodeID)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetTVEpisodeID"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetTVSeason)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetTVSeason"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetTVEpisode)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetTVEpisode"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetDescription)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetDescription"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetLongDescription)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetLongDescription"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetLyrics)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetLyrics"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetSortName)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetSortName"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetSortArtist)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetSortArtist"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetSortAlbumArtist)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetSortAlbumArtist"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetSortAlbum)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetSortAlbum"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetSortComposer)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetSortComposer"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetSortTVShow)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetSortTVShow"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsAddArtwork)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsAddArtwork"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetArtwork)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetArtwork"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsRemoveArtwork)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsRemoveArtwork"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetCopyright)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetCopyright"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetEncodingTool)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetEncodingTool"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetEncodedBy)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetEncodedBy"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetPurchaseDate)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetPurchaseDate"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetPodcast)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetPodcast"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetKeywords)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetKeywords"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetCategory)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetCategory"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetHDVideo)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetHDVideo"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetMediaType)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetMediaType"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetContentRating)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetContentRating"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetGapless)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetGapless"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetITunesAccount)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetITunesAccount"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetITunesAccountType)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetITunesAccountType"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetITunesCountry)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetITunesCountry"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetContentID)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetContentID"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetArtistID)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetArtistID"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetPlaylistID)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetPlaylistID"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetGenreID)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetGenreID"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetComposerID)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetComposerID"
+									 userInfo:nil];
+	}
+	if(!_MP4TagsSetXID)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4TagsSetXID"
+									 userInfo:nil];
+	}
 }
 @end

@@ -399,7 +399,7 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="493824053">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSTabView" id="993382448">
@@ -715,6 +715,7 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{469, 170}</string>
+					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="993382448"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
@@ -1006,7 +1007,7 @@
 				</object>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="439893737">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSSplitView" id="642190968">
@@ -1749,6 +1750,7 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{664, 439}</string>
+					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="642190968"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
@@ -2200,8 +2202,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{13, 40}, {454, 252}}</string>
 							<reference key="NSSuperview" ref="387642556"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="926907383"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<array class="NSMutableArray" key="NSTabViewItems">
 								<object class="NSTabViewItem" id="867627071">
@@ -2223,7 +2223,6 @@
 																<int key="NSvFlags">268</int>
 																<string key="NSFrame">{{18, 14}, {391, 46}}</string>
 																<reference key="NSSuperview" ref="749668782"/>
-																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="773646219"/>
 																<string key="NSReuseIdentifierKey">_NS:9</string>
 																<bool key="NSEnabled">YES</bool>
@@ -2364,14 +2363,12 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 														</array>
 														<string key="NSFrame">{{1, 1}, {420, 70}}</string>
 														<reference key="NSSuperview" ref="805412308"/>
-														<reference key="NSWindow"/>
 														<reference key="NSNextKeyView" ref="441072961"/>
 														<string key="NSReuseIdentifierKey">_NS:11</string>
 													</object>
 												</array>
 												<string key="NSFrame">{{6, 120}, {422, 86}}</string>
 												<reference key="NSSuperview" ref="926907383"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="749668782"/>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<string key="NSOffsets">{0, 0}</string>
@@ -2405,7 +2402,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 																<int key="NSvFlags">268</int>
 																<string key="NSFrame">{{16, 12}, {393, 18}}</string>
 																<reference key="NSSuperview" ref="434226328"/>
-																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="168002060"/>
 																<string key="NSReuseIdentifierKey">_NS:9</string>
 																<bool key="NSEnabled">YES</bool>
@@ -2429,14 +2425,12 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 														</array>
 														<string key="NSFrame">{{1, 1}, {420, 38}}</string>
 														<reference key="NSSuperview" ref="987722711"/>
-														<reference key="NSWindow"/>
 														<reference key="NSNextKeyView" ref="367365986"/>
 														<string key="NSReuseIdentifierKey">_NS:11</string>
 													</object>
 												</array>
 												<string key="NSFrame">{{6, 5}, {422, 54}}</string>
 												<reference key="NSSuperview" ref="926907383"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="434226328"/>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<string key="NSOffsets">{0, 0}</string>
@@ -2470,7 +2464,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 																<int key="NSvFlags">268</int>
 																<string key="NSFrame">{{16, 11}, {388, 18}}</string>
 																<reference key="NSSuperview" ref="883432740"/>
-																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="987722711"/>
 																<string key="NSReuseIdentifierKey">_NS:9</string>
 																<bool key="NSEnabled">YES</bool>
@@ -2494,14 +2487,12 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 														</array>
 														<string key="NSFrame">{{1, 1}, {420, 37}}</string>
 														<reference key="NSSuperview" ref="773646219"/>
-														<reference key="NSWindow"/>
 														<reference key="NSNextKeyView" ref="395670547"/>
 														<string key="NSReuseIdentifierKey">_NS:11</string>
 													</object>
 												</array>
 												<string key="NSFrame">{{6, 63}, {422, 53}}</string>
 												<reference key="NSSuperview" ref="926907383"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="883432740"/>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<string key="NSOffsets">{0, 0}</string>
@@ -2525,7 +2516,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 										</array>
 										<string key="NSFrame">{{10, 33}, {434, 206}}</string>
 										<reference key="NSSuperview" ref="168002060"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="805412308"/>
 										<string key="NSReuseIdentifierKey">_NS:11</string>
 									</object>
@@ -2774,8 +2764,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{384, 12}, {82, 32}}</string>
 							<reference key="NSSuperview" ref="387642556"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="779089587">
@@ -2796,7 +2784,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					</array>
 					<string key="NSFrameSize">{480, 298}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="168002060"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
@@ -9771,401 +9758,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 			<nil key="sourceID"/>
 			<int key="maxID">5801</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">NSLayoutConstraint</string>
-					<string key="superclassName">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">POPAppDelegate</string>
-					<string key="superclassName">NSObject</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="addMp4Click:">id</string>
-						<string key="autotagAllClick:">id</string>
-						<string key="autotagSelectedClick:">id</string>
-						<string key="customSearchWindowCloseClick:">id</string>
-						<string key="customSearchWindowSearchClick:">id</string>
-						<string key="helpClick:">id</string>
-						<string key="preferencesClick:">id</string>
-						<string key="preferencesWindowCloseClick:">id</string>
-						<string key="removeMp4Click:">id</string>
-						<string key="saveAllMp4Click:">id</string>
-						<string key="saveMp4Click:">id</string>
-						<string key="searchDoneClick:">id</string>
-						<string key="searchResultWindowSearchClick:">id</string>
-						<string key="searchTagClick:">id</string>
-						<string key="selectImageClick:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="addMp4Click:">
-							<string key="name">addMp4Click:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="autotagAllClick:">
-							<string key="name">autotagAllClick:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="autotagSelectedClick:">
-							<string key="name">autotagSelectedClick:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="customSearchWindowCloseClick:">
-							<string key="name">customSearchWindowCloseClick:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="customSearchWindowSearchClick:">
-							<string key="name">customSearchWindowSearchClick:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="helpClick:">
-							<string key="name">helpClick:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="preferencesClick:">
-							<string key="name">preferencesClick:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="preferencesWindowCloseClick:">
-							<string key="name">preferencesWindowCloseClick:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="removeMp4Click:">
-							<string key="name">removeMp4Click:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="saveAllMp4Click:">
-							<string key="name">saveAllMp4Click:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="saveMp4Click:">
-							<string key="name">saveMp4Click:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="searchDoneClick:">
-							<string key="name">searchDoneClick:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="searchResultWindowSearchClick:">
-							<string key="name">searchResultWindowSearchClick:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="searchTagClick:">
-							<string key="name">searchTagClick:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectImageClick:">
-							<string key="name">selectImageClick:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="automatedAutotagWindow">POPAutomatedAutotagWindow</string>
-						<string key="autotagAllButton">NSToolbarItem</string>
-						<string key="autotagButton">NSToolbarItem</string>
-						<string key="currentFilenameLabel">NSTextField</string>
-						<string key="customSearchWindow">NSWindow</string>
-						<string key="customSearchWindowEpisodeNumberTextField">NSTextField</string>
-						<string key="customSearchWindowMovieTextField">NSTextField</string>
-						<string key="customSearchWindowSeasonNumberTextField">NSTextField</string>
-						<string key="customSearchWindowSeriesTextField">NSTextField</string>
-						<string key="customSearchWindowTabView">NSTabView</string>
-						<string key="customSearchWindowUseSameSeriesCheckBox">NSButton</string>
-						<string key="dropFileHereImageWell">NSImageView</string>
-						<string key="loadWnd">POPLoadingWindow</string>
-						<string key="mp4AutotagWindowSplitViewHorizontal">NSSplitView</string>
-						<string key="mp4AutotagWindowSplitViewVertical">NSSplitView</string>
-						<string key="mp4FileTagImage">NSImageCell</string>
-						<string key="mp4FileTagTableView">NSTableView</string>
-						<string key="mp4FileTagView">NSTableView</string>
-						<string key="mp4FileTagsTableScrollView">NSScrollView</string>
-						<string key="preferencesAddWatermarkCheckBox">NSButton</string>
-						<string key="preferencesButton">NSToolbarItem</string>
-						<string key="preferencesEpisodeCoverArtMatrix">NSMatrix</string>
-						<string key="preferencesFixForNetworkCheckBox">NSButton</string>
-						<string key="preferencesFullAutomationCheckBox">NSButton</string>
-						<string key="preferencesProxySearchCheckBox">NSButton</string>
-						<string key="preferencesRenameCheckBox">NSButton</string>
-						<string key="preferencesUseITunesCheckBox">NSButton</string>
-						<string key="preferencesWindow">NSWindow</string>
-						<string key="removeButton">NSToolbarItem</string>
-						<string key="saveAllButton">NSToolbarItem</string>
-						<string key="saveButton">NSToolbarItem</string>
-						<string key="seachFilenameLabel">NSTextField</string>
-						<string key="searchResultWindow">NSWindow</string>
-						<string key="searchTableView">NSTableView</string>
-						<string key="window">NSWindow</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="automatedAutotagWindow">
-							<string key="name">automatedAutotagWindow</string>
-							<string key="candidateClassName">POPAutomatedAutotagWindow</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="autotagAllButton">
-							<string key="name">autotagAllButton</string>
-							<string key="candidateClassName">NSToolbarItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="autotagButton">
-							<string key="name">autotagButton</string>
-							<string key="candidateClassName">NSToolbarItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="currentFilenameLabel">
-							<string key="name">currentFilenameLabel</string>
-							<string key="candidateClassName">NSTextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="customSearchWindow">
-							<string key="name">customSearchWindow</string>
-							<string key="candidateClassName">NSWindow</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="customSearchWindowEpisodeNumberTextField">
-							<string key="name">customSearchWindowEpisodeNumberTextField</string>
-							<string key="candidateClassName">NSTextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="customSearchWindowMovieTextField">
-							<string key="name">customSearchWindowMovieTextField</string>
-							<string key="candidateClassName">NSTextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="customSearchWindowSeasonNumberTextField">
-							<string key="name">customSearchWindowSeasonNumberTextField</string>
-							<string key="candidateClassName">NSTextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="customSearchWindowSeriesTextField">
-							<string key="name">customSearchWindowSeriesTextField</string>
-							<string key="candidateClassName">NSTextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="customSearchWindowTabView">
-							<string key="name">customSearchWindowTabView</string>
-							<string key="candidateClassName">NSTabView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="customSearchWindowUseSameSeriesCheckBox">
-							<string key="name">customSearchWindowUseSameSeriesCheckBox</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="dropFileHereImageWell">
-							<string key="name">dropFileHereImageWell</string>
-							<string key="candidateClassName">NSImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="loadWnd">
-							<string key="name">loadWnd</string>
-							<string key="candidateClassName">POPLoadingWindow</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="mp4AutotagWindowSplitViewHorizontal">
-							<string key="name">mp4AutotagWindowSplitViewHorizontal</string>
-							<string key="candidateClassName">NSSplitView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="mp4AutotagWindowSplitViewVertical">
-							<string key="name">mp4AutotagWindowSplitViewVertical</string>
-							<string key="candidateClassName">NSSplitView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="mp4FileTagImage">
-							<string key="name">mp4FileTagImage</string>
-							<string key="candidateClassName">NSImageCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="mp4FileTagTableView">
-							<string key="name">mp4FileTagTableView</string>
-							<string key="candidateClassName">NSTableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="mp4FileTagView">
-							<string key="name">mp4FileTagView</string>
-							<string key="candidateClassName">NSTableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="mp4FileTagsTableScrollView">
-							<string key="name">mp4FileTagsTableScrollView</string>
-							<string key="candidateClassName">NSScrollView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="preferencesAddWatermarkCheckBox">
-							<string key="name">preferencesAddWatermarkCheckBox</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="preferencesButton">
-							<string key="name">preferencesButton</string>
-							<string key="candidateClassName">NSToolbarItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="preferencesEpisodeCoverArtMatrix">
-							<string key="name">preferencesEpisodeCoverArtMatrix</string>
-							<string key="candidateClassName">NSMatrix</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="preferencesFixForNetworkCheckBox">
-							<string key="name">preferencesFixForNetworkCheckBox</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="preferencesFullAutomationCheckBox">
-							<string key="name">preferencesFullAutomationCheckBox</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="preferencesProxySearchCheckBox">
-							<string key="name">preferencesProxySearchCheckBox</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="preferencesRenameCheckBox">
-							<string key="name">preferencesRenameCheckBox</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="preferencesUseITunesCheckBox">
-							<string key="name">preferencesUseITunesCheckBox</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="preferencesWindow">
-							<string key="name">preferencesWindow</string>
-							<string key="candidateClassName">NSWindow</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="removeButton">
-							<string key="name">removeButton</string>
-							<string key="candidateClassName">NSToolbarItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="saveAllButton">
-							<string key="name">saveAllButton</string>
-							<string key="candidateClassName">NSToolbarItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="saveButton">
-							<string key="name">saveButton</string>
-							<string key="candidateClassName">NSToolbarItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="seachFilenameLabel">
-							<string key="name">seachFilenameLabel</string>
-							<string key="candidateClassName">NSTextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="searchResultWindow">
-							<string key="name">searchResultWindow</string>
-							<string key="candidateClassName">NSWindow</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="searchTableView">
-							<string key="name">searchTableView</string>
-							<string key="candidateClassName">NSTableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="window">
-							<string key="name">window</string>
-							<string key="candidateClassName">NSWindow</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/POPAppDelegate.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">POPAutomatedAutotagWindow</string>
-					<string key="superclassName">NSWindow</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="closeClick:">id</string>
-						<string key="undoClick:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="closeClick:">
-							<string key="name">closeClick:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="undoClick:">
-							<string key="name">undoClick:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="progressWindow">POPProgressWindow</string>
-						<string key="propertyView">NSTableView</string>
-						<string key="queueView">NSTableView</string>
-						<string key="vsplit">NSSplitView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="progressWindow">
-							<string key="name">progressWindow</string>
-							<string key="candidateClassName">POPProgressWindow</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="propertyView">
-							<string key="name">propertyView</string>
-							<string key="candidateClassName">NSTableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="queueView">
-							<string key="name">queueView</string>
-							<string key="candidateClassName">NSTableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="vsplit">
-							<string key="name">vsplit</string>
-							<string key="candidateClassName">NSSplitView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/POPAutomatedAutotagWindow.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">POPLoadingWindow</string>
-					<string key="superclassName">NSWindow</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">msgLabel</string>
-						<string key="NS.object.0">NSTextField</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">msgLabel</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">msgLabel</string>
-							<string key="candidateClassName">NSTextField</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/POPLoadingWindow.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">POPProgressWindow</string>
-					<string key="superclassName">NSWindow</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="messageTextField">NSTextField</string>
-						<string key="progressBar">NSProgressIndicator</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="messageTextField">
-							<string key="name">messageTextField</string>
-							<string key="candidateClassName">NSTextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="progressBar">
-							<string key="name">progressBar</string>
-							<string key="candidateClassName">NSProgressIndicator</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/POPProgressWindow.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">SUUpdater</string>
-					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">checkForUpdates:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">checkForUpdates:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">checkForUpdates:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">delegate</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">delegate</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">delegate</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SUUpdater.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">
