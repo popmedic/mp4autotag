@@ -12,10 +12,10 @@
 +(void)loadMp4v2Lib:(NSString*)path
 {
 	void* mp4v2_lib_handle;
-	mp4v2_lib_handle = dlopen("libmp4v2.dylib", RTLD_GLOBAL|RTLD_LAZY);
+	mp4v2_lib_handle = dlopen("libmp4v2.2.dylib", RTLD_LOCAL|RTLD_LAZY);
 	if(!mp4v2_lib_handle)
 	{
-		mp4v2_lib_handle = dlopen([path cStringUsingEncoding:NSUTF8StringEncoding], RTLD_GLOBAL|RTLD_LAZY);
+		mp4v2_lib_handle = dlopen([path cStringUsingEncoding:NSUTF8StringEncoding], RTLD_LOCAL|RTLD_LAZY);
 	}
 	if(!mp4v2_lib_handle)
 	{
