@@ -66,6 +66,7 @@ bool (*_MP4TagsSetPlaylistID       ) ( const MP4Tags*, const uint64_t* );*/
 bool (*_MP4TagsSetGenreID          ) ( const MP4Tags*, const uint32_t* );
 bool (*_MP4TagsSetComposerID       ) ( const MP4Tags*, const uint32_t* );
 bool (*_MP4TagsSetXID              ) ( const MP4Tags*, const char* );
+bool (*_MP4MakeIsmaCompliant       ) ( const char*, bool );
 
 @interface POPmp4v2dylibloader : NSObject
 +(void)loadMp4v2Lib:(NSString*)path;

@@ -80,6 +80,7 @@
 	_MP4TagsSetGenreID           = dlsym(mp4v2_lib_handle, "MP4TagsSetGenreID");
 	_MP4TagsSetComposerID        = dlsym(mp4v2_lib_handle, "MP4TagsSetComposerID");
 	_MP4TagsSetXID               = dlsym(mp4v2_lib_handle, "MP4TagsSetXID");
+	_MP4MakeIsmaCompliant        = dlsym(mp4v2_lib_handle, "MP4MakeIsmaCompliant");
 	if(!_MP4Modify)
 	{
 		@throw [NSException exceptionWithName:@"FileNotFoundException"
@@ -424,6 +425,12 @@
 	{
 		@throw [NSException exceptionWithName:@"FileNotFoundException"
 									   reason:@"Unable to load function MP4TagsSetXID"
+									 userInfo:nil];
+	}
+	if(!_MP4MakeIsmaCompliant)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4MakeIsmaCompliant"
 									 userInfo:nil];
 	}
 }
