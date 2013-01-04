@@ -331,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A5BDF5A166FF0D400E537FF /* mp4autotag_pub.pem in Resources */,
 				0AFF0095168DEAD4008ED1B4 /* libmp4v2.2.dylib in Resources */,
 				0AD6637F1614B4D2005EA39C /* InfoPlist.strings in Resources */,
 				0AD663851614B4D2005EA39C /* Credits.rtf in Resources */,
@@ -355,7 +356,6 @@
 				0A5BDF36166FC8BD00E537FF /* save_all@2x.png in Resources */,
 				0A5BDF37166FC8BD00E537FF /* save@2x.png in Resources */,
 				0A5BDF38166FC8BD00E537FF /* search@2x.png in Resources */,
-				0A5BDF5A166FF0D400E537FF /* mp4autotag_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

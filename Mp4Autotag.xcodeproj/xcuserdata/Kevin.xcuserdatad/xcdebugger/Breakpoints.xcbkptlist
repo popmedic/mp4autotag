@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mp4Autotag/POPMp4FileTag.m"
-         timestampString = "378406789.34623"
+         timestampString = "378947486.201203"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "188"
-         endingLineNumber = "188"
+         startingLineNumber = "200"
+         endingLineNumber = "200"
          landmarkName = "-initWithFile:"
          landmarkType = "5">
       </FileBreakpoint>

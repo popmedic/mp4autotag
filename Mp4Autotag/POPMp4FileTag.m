@@ -17,6 +17,7 @@
 	NSArray* keysOrder;
 	NSArray* numFlags;
 	NSArray* allowedMediaTypes;
+	NSArray* doNotMerge;
 }
 
 @synthesize properties = _properties;
@@ -29,6 +30,8 @@
 @synthesize imageUrl = _imageUrl;
 
 -(id) init {
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+	[dateFormatter setDateFormat:@"MM-dd-yyyy"];
 	_filename = @"";
 	_coverArtPieces = 0;
 	_image = nil;
@@ -38,11 +41,11 @@
 	_imageUrl = nil;
 	numFlags = [NSArray arrayWithObjects:@"-b", @"-d",@"-D",@"-H",@"-I",@"-M",@"-n",@"-t",@"-T",@"-y", nil];
 	allowedMediaTypes = [NSArray arrayWithObjects:@"tvshow", @"movie", @"music", nil];
+	doNotMerge = [NSArray arrayWithObject:@"Purchase Date"];
 	keysOrder = [NSArray arrayWithObjects:
 				 @"Name",
 				 @"Media Type",
 				 @"TV Show",
-				 @"Release Date",
 				 @"Genre",
 				 @"Grouping",
 				 @"TV Episode",
@@ -55,17 +58,20 @@
 				 @"Artist",
 				 @"Album Artist",
 				 @"Composer",
+				 @"cnID",
+				 @"Category",
+				 @"Release Date",
+				 @"Purchase Date",
+				 @"Copyright",
 				 @"Track",
 				 @"Tracks",
 				 @"Disk",
 				 @"Disks",
 				 @"BPM",
-				 @"Copyright",
 				 @"Comments",
 				 @"HD Video",
 				 @"Encoded with",
 				 @"Encoded by",
-				 @"cnID",
 				 @"Lyrics",
 				 nil];
 	_properties = 
@@ -117,7 +123,7 @@
 										  forKeys:[NSArray arrayWithObjects:@"flag", @"value", nil]],
 				[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"-m", @"", nil]
 										  forKeys:[NSArray arrayWithObjects:@"flag", @"value", nil]],
-				[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"-l", @"0", nil]
+				[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"-l", @"", nil]
 										  forKeys:[NSArray arrayWithObjects:@"flag", @"value", nil]],
 				[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"-M", @"0", nil]
 										  forKeys:[NSArray arrayWithObjects:@"flag", @"value", nil]],
@@ -127,6 +133,10 @@
 										  forKeys:[NSArray arrayWithObjects:@"flag", @"value", nil]],
 				[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"-L", @"0", nil]
 										  forKeys:[NSArray arrayWithObjects:@"flag", @"value", nil]],
+				[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"-k", @"Movies", nil]
+												   forKeys:[NSArray arrayWithObjects:@"flag", @"value", nil]],
+				 [NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"-K", [dateFormatter stringFromDate:[NSDate new]], nil]
+													forKeys:[NSArray arrayWithObjects:@"flag", @"value", nil]],
 				nil
 			]
 									forKeys:
@@ -159,6 +169,8 @@
 				@"TV Season",
 				@"cnID",
 				@"Lyrics",
+				@"Category",
+				@"Purchase Date",
 				nil
 			]
 		];
@@ -213,7 +225,7 @@
 	if(v2tags->genre)[rtn setProperty: @"Genre" value:[NSString stringWithCString: v2tags->genre encoding:NSUTF8StringEncoding]];
 	if(v2tags->releaseDate)[rtn setProperty: @"Release Date" value:[NSString stringWithCString: v2tags->releaseDate encoding:NSUTF8StringEncoding]];
 	if(v2tags->track)[rtn setProperty: @"Track" value:[NSString stringWithFormat:@"%u", v2tags->track->index]];
-	if(v2tags->track)[rtn setProperty: @"Tracks" value:[NSString stringWithFormat:@"%u", v2tags->track->index]];
+	if(v2tags->track)[rtn setProperty: @"Tracks" value:[NSString stringWithFormat:@"%u", v2tags->track->total]];
 	if(v2tags->disk)[rtn setProperty: @"Disk" value:[NSString stringWithFormat:@"%u", v2tags->disk->index]];
 	if(v2tags->disk)[rtn setProperty: @"Disks" value:[NSString stringWithFormat:@"%u", v2tags->disk->total]];
 	if(v2tags->tempo)[rtn setProperty: @"BPM" value:[NSString stringWithFormat:@"%u", *v2tags->tempo]];
@@ -224,8 +236,10 @@
 	if(v2tags->tvSeason)[rtn setProperty: @"TV Season" value:[NSString stringWithFormat:@"%u", *v2tags->tvSeason]];
 	if(v2tags->description)[rtn setProperty: @"Short Description" value:[NSString stringWithCString: v2tags->description encoding:NSUTF8StringEncoding]];
 	if(v2tags->longDescription)[rtn setProperty: @"Long Description" value:[NSString stringWithCString: v2tags->longDescription encoding:NSUTF8StringEncoding]];
+	if(v2tags->category)[rtn setProperty: @"Category" value:[NSString stringWithCString: v2tags->category encoding:NSUTF8StringEncoding]];
 	if(v2tags->lyrics)[rtn setProperty: @"Lyrics" value:[NSString stringWithCString: v2tags->lyrics encoding:NSUTF8StringEncoding]];
 	if(v2tags->copyright)[rtn setProperty: @"Copyright" value:[NSString stringWithCString: v2tags->copyright encoding:NSUTF8StringEncoding]];
+	if(v2tags->purchaseDate)[rtn setProperty: @"Purchase Date" value:[NSString stringWithCString: v2tags->purchaseDate encoding:NSUTF8StringEncoding]];
 	if(v2tags->encodingTool)[rtn setProperty: @"Encoded with" value:[NSString stringWithCString: v2tags->encodingTool encoding:NSUTF8StringEncoding]];
 	if(v2tags->encodedBy)[rtn setProperty: @"Encoded by" value:[NSString stringWithCString: v2tags->encodedBy encoding:NSUTF8StringEncoding]];
 	if(v2tags->hdVideo)[rtn setProperty: @"HD Video" value:[NSString stringWithFormat:@"%u", *v2tags->hdVideo]];
@@ -266,6 +280,7 @@
 	_MP4TagsSetComments(v2tags, [[self property:@"Comments"] cStringUsingEncoding:NSUTF8StringEncoding]);
 	_MP4TagsSetAlbumArtist(v2tags, [[self property:@"Album Artist"] cStringUsingEncoding:NSUTF8StringEncoding]);
 	_MP4TagsSetCopyright(v2tags, [[self property:@"Copyright"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetPurchaseDate(v2tags, [[self property:@"Purchase Date"] cStringUsingEncoding:NSUTF8StringEncoding]);
 	_MP4TagsSetTVShow(v2tags, [[self property:@"TV Show"] cStringUsingEncoding:NSUTF8StringEncoding]);
 	_MP4TagsSetTVNetwork(v2tags, [[self property:@"TV Network"] cStringUsingEncoding:NSUTF8StringEncoding]);
 	_MP4TagsSetTVEpisodeID(v2tags, [[self property:@"TV Episode Number"] cStringUsingEncoding:NSUTF8StringEncoding]);
@@ -273,6 +288,7 @@
 	_MP4TagsSetLongDescription(v2tags, [[self property:@"Long Description"] cStringUsingEncoding:NSUTF8StringEncoding]);
 	_MP4TagsSetXID(v2tags, [[self property:@"cnID"] cStringUsingEncoding:NSUTF8StringEncoding]);
 	_MP4TagsSetLyrics(v2tags, [[self property:@"Lyrics"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	_MP4TagsSetCategory(v2tags, [[self property:@"Category"] cStringUsingEncoding:NSUTF8StringEncoding]);
 	
 	uint8_t n8;
 	n8 = [[self property:@"HD Video"] intValue];
@@ -309,15 +325,15 @@
 	
 	if([[self property:@"Media Type"] compare:@"tvshow"] == 0)
 	{
-		n8 = 0x10;
+		n8 = 10;
 	}
 	else if([[self property:@"Media Type"] compare:@"music"] == 0)
 	{
-		n8 = 0x06;
+		n8 = 6;
 	}
 	else
 	{
-		n8 = 0x09;
+		n8 = 9;
 	}
 	_MP4TagsSetMediaType(v2tags, &n8);
 	
@@ -404,9 +420,12 @@
 	_coverArtPieces = [data coverArtPieces];
 	[self setImage:[data image]];
 	_dbID = [data dbID];
-	
 	for(int i = 0; i < [[_properties allKeys] count]; i++) {
-		[self setProperty:[[_properties allKeys] objectAtIndex:i] value:[data property:[[_properties allKeys] objectAtIndex:i]]];
+		NSString *prop = [[_properties allKeys] objectAtIndex:i];
+		if(![doNotMerge containsObject:prop])
+		{
+			[self setProperty:prop value:[data property:[[_properties allKeys] objectAtIndex:i]]];
+		}
 	}
 	return true;
 }

@@ -29,6 +29,7 @@ class Tag
       	"TV Season" => {"optstr" => "-n", "value" => ""},
       	"cnID" => {"optstr" => "-I", "value" => "0"},
       	"Lyrics" => {"optstr" => "-L", "value" => ""},
+      	"Category" => {"optstr" => "-k", "value" => "Movies"}
       }
     return rtn
   end
