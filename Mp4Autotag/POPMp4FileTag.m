@@ -5,7 +5,8 @@
 //  Created by Kevin Scardina on 9/29/12.
 //  Copyright (c) 2012 The Popmedic. All rights reserved.
 //
-
+#import <Cocoa/Cocoa.h>
+#import "iTunes.h"
 #import "POPMp4FileTag.h"
 #import "POPmp4v2dylibloader.h"
 #import "POPFileMan.h"
@@ -31,7 +32,7 @@
 
 -(id) init {
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-	[dateFormatter setDateFormat:@"MM-dd-yyyy"];
+	[dateFormatter setDateFormat:@"dd-MM-yyyy"];
 	_filename = @"";
 	_coverArtPieces = 0;
 	_image = nil;
@@ -341,6 +342,23 @@
 	
     _MP4TagsFree(v2tags);
     _MP4Close(v2file, 0);
+	
+	iTunesApplication* itunes = (iTunesApplication*)[SBApplication applicationWithBundleIdentifier:@"com.apple.iTunes"];
+	if([itunes isRunning])
+	{
+		SBElementArray *sources = [itunes sources];
+		NSLog(@"SOURCES: %ld", [sources count]);
+		SBElementArray *items = [[[[sources objectAtIndex:1] libraryPlaylists] objectAtIndex:0] fileTracks];
+		NSLog(@"Library: %ld", [items count]);
+		
+		for (iTunesFileTrack *item in items) {
+			NSLog(@"%@.location = %@", [item name], [[item location] path]);
+			if([_filename compare:[[item location] path]] == 0)
+			{
+				[item refresh];
+			}
+		}
+	}
 	
 	return true;
 }

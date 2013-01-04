@@ -45,6 +45,7 @@
 		0A9CB321166959EF007478FB /* POPAutomatedAutotagPropertyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CB320166959EE007478FB /* POPAutomatedAutotagPropertyView.m */; };
 		0AAC9B97161718980067F41E /* POPLoadingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC9B96161718980067F41E /* POPLoadingWindow.m */; };
 		0AAC9B9C16173DB30067F41E /* POPMp4FileTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC9B9B16173DB30067F41E /* POPMp4FileTag.m */; };
+		0ABBE56A169750D70018765A /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABBE56816972DC80018765A /* ScriptingBridge.framework */; };
 		0AD663751614B4D2005EA39C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD663741614B4D2005EA39C /* Cocoa.framework */; };
 		0AD6637F1614B4D2005EA39C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6637D1614B4D2005EA39C /* InfoPlist.strings */; };
 		0AD663811614B4D2005EA39C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD663801614B4D2005EA39C /* main.m */; };
@@ -123,6 +124,8 @@
 		0AAC9B96161718980067F41E /* POPLoadingWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPLoadingWindow.m; sourceTree = "<group>"; };
 		0AAC9B9A16173DB30067F41E /* POPMp4FileTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPMp4FileTag.h; sourceTree = "<group>"; };
 		0AAC9B9B16173DB30067F41E /* POPMp4FileTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPMp4FileTag.m; sourceTree = "<group>"; };
+		0ABBE56616972D650018765A /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
+		0ABBE56816972DC80018765A /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		0AD663701614B4D2005EA39C /* Mp4Autotag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mp4Autotag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD663741614B4D2005EA39C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		0AD663771614B4D2005EA39C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -146,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ABBE56A169750D70018765A /* ScriptingBridge.framework in Frameworks */,
 				0AD663751614B4D2005EA39C /* Cocoa.framework in Frameworks */,
 				0A85B7BB165E92D200D5127E /* Sparkle.framework in Frameworks */,
 			);
@@ -184,6 +188,7 @@
 		0AD663651614B4D1005EA39C = {
 			isa = PBXGroup;
 			children = (
+				0ABBE56816972DC80018765A /* ScriptingBridge.framework */,
 				0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */,
 				0A5BDF39166FC90B00E537FF /* mp4autotag.icns */,
 				0AAC9B99161718B60067F41E /* Artwork */,
@@ -225,6 +230,7 @@
 		0AD6637A1614B4D2005EA39C /* Mp4Autotag */ = {
 			isa = PBXGroup;
 			children = (
+				0ABBE56616972D650018765A /* iTunes.h */,
 				0A5BDF59166FF0D400E537FF /* mp4autotag_pub.pem */,
 				0A5BDF53166FDF4400E537FF /* Mp4Autotag.entitlements */,
 				0AD663891614B4D3005EA39C /* MainMenu.xib */,
