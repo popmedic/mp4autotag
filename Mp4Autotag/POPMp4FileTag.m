@@ -267,6 +267,10 @@
 		NSLog(@"MP4Modify failed.");
 		return false;
     }
+	
+	const MP4Tags* old_v2tags = _MP4TagsAlloc();
+	_MP4TagsFetch(old_v2tags, v2file);
+	
 	const MP4Tags* v2tags = _MP4TagsAlloc();
 	
 	_MP4TagsSetName(v2tags, [[self property:@"Name"] cStringUsingEncoding:NSUTF8StringEncoding]);
@@ -341,24 +345,30 @@
     _MP4TagsStore(v2tags, v2file);
 	
     _MP4TagsFree(v2tags);
-    _MP4Close(v2file, 0);
 	
-	iTunesApplication* itunes = (iTunesApplication*)[SBApplication applicationWithBundleIdentifier:@"com.apple.iTunes"];
+	iTunesApplication* itunes = [SBApplication applicationWithBundleIdentifier:@"com.apple.iTunes"];
 	if([itunes isRunning])
 	{
-		SBElementArray *sources = [itunes sources];
-		NSLog(@"SOURCES: %ld", [sources count]);
-		SBElementArray *items = [[[[sources objectAtIndex:1] libraryPlaylists] objectAtIndex:0] fileTracks];
-		NSLog(@"Library: %ld", [items count]);
-		
+		//[itunes activate];
+		NSLog(@"Using iTunes Version %@", [itunes version]);
+		NSArray *sources = [[itunes sources] get];
+		iTunesLibraryPlaylist* pl = [[(iTunesSource*)[sources objectAtIndex:0] libraryPlaylists] objectAtIndex:0];
+		NSString *ot_search = [[NSString alloc] initWithCString:old_v2tags->name encoding:NSUTF8StringEncoding];
+		SBElementArray* items = (SBElementArray*)[pl searchFor:ot_search only:iTunesESrASongs];
+		//SBElementArray* items = [pl fileTracks];
 		for (iTunesFileTrack *item in items) {
-			NSLog(@"%@.location = %@", [item name], [[item location] path]);
-			if([_filename compare:[[item location] path]] == 0)
+			NSString *locp = [[item location] path];
+			//NSLog(@"%@.location = %@", [item name], locp);
+			if([_filename compare:locp] == 0)
 			{
+				//sleep(1);
 				[item refresh];
+				break;
 			}
 		}
 	}
+	_MP4TagsFree(old_v2tags);
+    _MP4Close(v2file, 0);
 	
 	return true;
 }
