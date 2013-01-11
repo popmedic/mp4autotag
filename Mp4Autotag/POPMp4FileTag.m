@@ -346,7 +346,7 @@
 	
     _MP4TagsFree(v2tags);
 	
-	iTunesApplication* itunes = [SBApplication applicationWithBundleIdentifier:@"com.apple.iTunes"];
+	/*iTunesApplication* itunes = [SBApplication applicationWithBundleIdentifier:@"com.apple.iTunes"];
 	if([itunes isRunning])
 	{
 		//[itunes activate];
@@ -366,7 +366,7 @@
 				break;
 			}
 		}
-	}
+	}*/
 	_MP4TagsFree(old_v2tags);
     _MP4Close(v2file, 0);
 	
