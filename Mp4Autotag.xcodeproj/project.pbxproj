@@ -188,7 +188,6 @@
 		0AD663651614B4D1005EA39C = {
 			isa = PBXGroup;
 			children = (
-				0ABBE56816972DC80018765A /* ScriptingBridge.framework */,
 				0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */,
 				0A5BDF39166FC90B00E537FF /* mp4autotag.icns */,
 				0AAC9B99161718B60067F41E /* Artwork */,
@@ -210,6 +209,7 @@
 		0AD663731614B4D2005EA39C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0ABBE56816972DC80018765A /* ScriptingBridge.framework */,
 				0A85B7BA165E92D200D5127E /* Sparkle.framework */,
 				0AD663741614B4D2005EA39C /* Cocoa.framework */,
 				0AD663761614B4D2005EA39C /* Other Frameworks */,
