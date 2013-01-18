@@ -44,6 +44,7 @@
 		0A9CB319166918CB007478FB /* POPAutomatedAutotagQueueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CB318166918CA007478FB /* POPAutomatedAutotagQueueView.m */; };
 		0A9CB31C16692AC6007478FB /* POPProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CB31B16692AC6007478FB /* POPProgressWindow.m */; };
 		0A9CB321166959EF007478FB /* POPAutomatedAutotagPropertyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CB320166959EE007478FB /* POPAutomatedAutotagPropertyView.m */; };
+		0AA4DB5616A9C35400A7AC08 /* libmp4v2.2.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA4DB5416A9C33700A7AC08 /* libmp4v2.2.dylib */; };
 		0AAC9B97161718980067F41E /* POPLoadingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC9B96161718980067F41E /* POPLoadingWindow.m */; };
 		0AAC9B9C16173DB30067F41E /* POPMp4FileTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC9B9B16173DB30067F41E /* POPMp4FileTag.m */; };
 		0AD663751614B4D2005EA39C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD663741614B4D2005EA39C /* Cocoa.framework */; };
@@ -52,7 +53,6 @@
 		0AD663851614B4D2005EA39C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0AD663831614B4D2005EA39C /* Credits.rtf */; };
 		0AD663881614B4D2005EA39C /* POPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD663871614B4D2005EA39C /* POPAppDelegate.m */; };
 		0AD6638B1614B4D3005EA39C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD663891614B4D3005EA39C /* MainMenu.xib */; };
-		0AFF0095168DEAD4008ED1B4 /* libmp4v2.2.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */; };
 		0AFF009F168DFFE3008ED1B4 /* POPmp4v2dylibloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF009E168DFFE3008ED1B4 /* POPmp4v2dylibloader.m */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +120,7 @@
 		0A9CB31B16692AC6007478FB /* POPProgressWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPProgressWindow.m; sourceTree = "<group>"; };
 		0A9CB31F166959EE007478FB /* POPAutomatedAutotagPropertyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAutomatedAutotagPropertyView.h; sourceTree = "<group>"; };
 		0A9CB320166959EE007478FB /* POPAutomatedAutotagPropertyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPAutomatedAutotagPropertyView.m; sourceTree = "<group>"; };
+		0AA4DB5416A9C33700A7AC08 /* libmp4v2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmp4v2.2.dylib; sourceTree = "<group>"; };
 		0AAC9B95161718980067F41E /* POPLoadingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPLoadingWindow.h; sourceTree = "<group>"; };
 		0AAC9B96161718980067F41E /* POPLoadingWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPLoadingWindow.m; sourceTree = "<group>"; };
 		0AAC9B9A16173DB30067F41E /* POPMp4FileTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPMp4FileTag.h; sourceTree = "<group>"; };
@@ -139,7 +140,6 @@
 		0AD663861614B4D2005EA39C /* POPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = POPAppDelegate.h; sourceTree = "<group>"; };
 		0AD663871614B4D2005EA39C /* POPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POPAppDelegate.m; sourceTree = "<group>"; };
 		0AD6638A1614B4D3005EA39C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmp4v2.2.dylib; sourceTree = "<group>"; };
 		0AFF009D168DFFE3008ED1B4 /* POPmp4v2dylibloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPmp4v2dylibloader.h; sourceTree = "<group>"; };
 		0AFF009E168DFFE3008ED1B4 /* POPmp4v2dylibloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPmp4v2dylibloader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,7 +188,6 @@
 		0AD663651614B4D1005EA39C = {
 			isa = PBXGroup;
 			children = (
-				0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */,
 				0A5BDF39166FC90B00E537FF /* mp4autotag.icns */,
 				0AAC9B99161718B60067F41E /* Artwork */,
 				0AD6637B1614B4D2005EA39C /* Supporting Files */,
@@ -275,6 +274,7 @@
 		0AD6637B1614B4D2005EA39C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0AA4DB5416A9C33700A7AC08 /* libmp4v2.2.dylib */,
 				0AD6637C1614B4D2005EA39C /* Mp4Autotag-Info.plist */,
 				0AD6637D1614B4D2005EA39C /* InfoPlist.strings */,
 				0AD663801614B4D2005EA39C /* main.m */,
@@ -337,8 +337,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AA4DB5616A9C35400A7AC08 /* libmp4v2.2.dylib in Resources */,
 				0A5BDF5A166FF0D400E537FF /* mp4autotag_pub.pem in Resources */,
-				0AFF0095168DEAD4008ED1B4 /* libmp4v2.2.dylib in Resources */,
 				0AD6637F1614B4D2005EA39C /* InfoPlist.strings in Resources */,
 				0AD663851614B4D2005EA39C /* Credits.rtf in Resources */,
 				0AD6638B1614B4D3005EA39C /* MainMenu.xib in Resources */,
@@ -496,9 +496,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Mp4Autotag\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = "";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -527,9 +529,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Mp4Autotag\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = "";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
