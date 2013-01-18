@@ -113,7 +113,7 @@ Once complete, the below panel will be present so you can undo any changes the a
 ![mp4autotag preferences panel, other.](http://www.popmedic.com/images/mp4autotag_preferences_other.png) 
 
 * **Rename file to standard convention.** - This option will rename the mp4 file to a standard convention (for movies - "movie name" ("year"), for shows - "show name" - S"season number"E"episode number" - "episode title").
-* **Optimize for network.** - This option will fix the MOOV order so that the movie will play over a network to some less sophisticated browsers and players.  _This option could add up to a minute of processing on saves_.
+* **Optimize for network.** - This option will use the mp4v2 2.0.0 function MP3Optimize on the file.  _This option could add up to a minute of processing on saves_.
 * **Use "Popmedic" proxy search.** - This option will use a proxy search though [popmedic.com](http://www.popmedic.com/cgi/mp4autotag_cgi.rb).  By using this proxy you will have the most comprehensive and up-to-date search I provide.  You can turn this option off, but the results of a search will not be as accurate.  _See more about the proxy in the Design notes below._ 
 
 [Table of Contents](#table-of-contents)
