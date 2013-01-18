@@ -99,7 +99,7 @@ Once complete, the below panel will be present so you can undo any changes the a
 
 #### Cover Art Tab ####
 
-![mp4autotag preferences panel, Cover Art.](http://www.popmedic.com/images/mp4autotag_preferences_ca.png)
+![mp4autotag preferences panel, Cover Art.](http://www.popmedic.com/images/mp4autotag_preferences_ca.0.1.3.png)
 
 * **Use unique TVDB art for each episode.** - When selected show searches will return the image path to an unique image for the episode from [thetvdb.com](http://www.thetvdb.com).
 * **Use series art for each episode.** - When selected show searches will return the image path to an image for the series.
@@ -110,7 +110,7 @@ Once complete, the below panel will be present so you can undo any changes the a
 
 #### Other Tab ####
 
-![mp4autotag preferences panel, other.](http://www.popmedic.com/images/mp4autotag_preferences_other.png) 
+![mp4autotag preferences panel, other.](http://www.popmedic.com/images/mp4autotag_preferences_other.0.1.3.png) 
 
 * **Rename file to standard convention.** - This option will rename the mp4 file to a standard convention (for movies - "movie name" ("year"), for shows - "show name" - S"season number"E"episode number" - "episode title").
 * **Optimize for network.** - This option will use the mp4v2 2.0.0 function MP3Optimize on the file.  _This option could add up to a minute of processing on saves_.
