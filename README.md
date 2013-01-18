@@ -46,15 +46,15 @@ When you start Mp4Autotag you will see the above Window.  You can drag and drop 
 ![mp4autotag application with Kanon Series in queue.](http://www.popmedic.com/images/mp4autotag_kanon.png)
 Once you have mp4's in the queue, you can select them and edit their current tags in the lower panel.  Once edited, you can save the changes by clicking on the "Save" button, or "File | Save".  You could also "Autotag" the mp4 by clicking on the "Autotag" button. If you want to "Autotag" all your mp4's then select all the files in the queue and click the "Autotag" button.  You can also do an "Automated" autotagging of files by selecting the files you want "Automated" autotagging done to and clicking the "Automated" button.  The "Preferences" button will bring up the [preferences](#preferences) panel where you can customize how Mp4Autotag behaves.
 * **Removing**
-	Removing will remove the selected file(s) from the queue.
+	 will remove the selected file(s) from the queue.
 	1. Select file(s) to remove.
 	2. Click Remove button.
 * **Saving**
-	Saving will save the selected file(s) edited tag data.
+	 will save the selected file(s) edited tag data.
 	1. Select file(s) to save.
 	2. Click Save button.
 * **Autotagging**
-	Autotagging will bring up a search results window for all files selected.  
+	 will bring up a search results window for all files selected.  
 	It will take a file name, use its full path to decide if the files is a 
 	Show or a Movie, then based on that pattern match, search the appropriate 
 	databases for information about that show/movie.The search results window will 
@@ -62,7 +62,7 @@ Once you have mp4's in the queue, you can select them and edit their current tag
 	1. Select file(s) to Autotag.
 	2. Click Save button.
 * **Automated**
-	Automated will do a batch autotagging of the selected file(s).  Each file selected
+	 will do a batch autotagging of the selected file(s).  Each file selected
 	will be searched and the top result will be used to tag the current file.  After the process
 	the user is presented a results window where they can see what has been changed, and undo the 
 	changes if they are not correct.
