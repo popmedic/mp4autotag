@@ -44,7 +44,7 @@ Run Mp4Autotag by browsing to Applications and clicking on Mp4Autotag.
 
 When you start Mp4Autotag you will see the above Window.  You can drag and drop files into this Window to add mp4's or you can click on the "Add" button, or "File | Add..." to add mp4's to the queue.
 ![mp4autotag application with Kanon Series in queue.](http://www.popmedic.com/images/mp4autotag_kanon.png)
-Once you have mp4's in the queue, you can select them and edit their current tags in the lower panel.  Once edited, you can save the changes by clicking on the "Save" button, or "File | Save".  You could also "Autotag" the mp4 by clicking on the "Autotag" button. If you want to "Autotag" all your mp4's then you can click the "Autotag All" button.  The "Save All" button will save the changes to all the mp4's in your queue.  The "Preferences" button will bring up the preferences panel where you can customize how Mp4Autotag behaves.
+Once you have mp4's in the queue, you can select them and edit their current tags in the lower panel.  Once edited, you can save the changes by clicking on the "Save" button, or "File | Save".  You could also "Autotag" the mp4 by clicking on the "Autotag" button. If you want to "Autotag" all your mp4's then select all the files in the queue and click the "Autotag" button.  You can also do an "Automated" autotagging of files by selecting the files you want "Automated" autotagging done to and clicking the "Automated" button.  The "Preferences" button will bring up the [preferences](#preferences) panel where you can customize how Mp4Autotag behaves.
 * **Removing**
 	Removing will remove the selected file(s) from the queue.
 	1. Select file(s) to remove.
