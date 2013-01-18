@@ -40,10 +40,10 @@ Run Mp4Autotag by browsing to Applications and clicking on Mp4Autotag.
 
 ### The Main Window ###
 
-![mp4autotag application empty queue.](http://www.popmedic.com/images/mp4autotag_empty.png)
+![mp4autotag application empty queue.](http://www.popmedic.com/images/mp4autotag_empty.0.1.3.png)
 
 When you start Mp4Autotag you will see the above Window.  You can drag and drop files into this Window to add mp4's or you can click on the "Add" button, or "File | Add..." to add mp4's to the queue.
-![mp4autotag application with Kanon Series in queue.](http://www.popmedic.com/images/mp4autotag_kanon.png)
+![mp4autotag application with Kanon Series in queue.](http://www.popmedic.com/images/mp4autotag_full.0.1.3.png)
 Once you have mp4's in the queue, you can select them and edit their current tags in the lower panel.  Once edited, you can save the changes by clicking on the "Save" button, or "File | Save".  You could also "Autotag" the mp4 by clicking on the "Autotag" button. If you want to "Autotag" all your mp4's then select all the files in the queue and click the "Autotag" button.  You can also do an "Automated" autotagging of files by selecting the files you want "Automated" autotagging done to and clicking the "Automated" button.  The "Preferences" button will bring up the [preferences](#preferences) panel where you can customize how Mp4Autotag behaves.
 * **Removing**
 	 will remove the selected file(s) from the queue.
@@ -73,7 +73,7 @@ Once you have mp4's in the queue, you can select them and edit their current tag
 
 ### The Autotag Panel ###
 
-![mp4autotag autotag panel.](http://www.popmedic.com/images/mp4autotag_autotagwnd.png)
+![mp4autotag autotag panel.](http://www.popmedic.com/images/mp4autotag_autotagwnd.0.1.3.png)
 
 The Autotag Panel will appear when you do a "Autotag" or "Autotag All".  This panel provides you with a table to see the results for the search on the mp4 file shown in the bottom status line.  Select the result that looks most correct to you and click on the tag button to merge and save the meta-data content to the mp4 file.  If the result you want is not in the table, then try a "Custom Search" by clicking on the "Search" button.  The "Close" button will close the "Autotag" or "Autotag All" session. 
 
@@ -83,11 +83,11 @@ The Autotag Panel will appear when you do a "Autotag" or "Autotag All".  This pa
 
 If you hit the "Automated" button, all the files in the queue will be searched and tagged with the first result returned.  
 
-![mp4autotag autotag automated running panel, other.](http://www.popmedic.com/images/mp4autotag_automated_autotagwnd_running.png)
+![mp4autotag autotag automated running panel, other.](http://www.popmedic.com/images/mp4autotag_automatedwnd_running.0.1.3.png)
 
 Once complete, the below panel will be present so you can undo any changes the automated autotag made that are not correct.
 
-![mp4autotag autotag automatedpreferences panel, other.](http://www.popmedic.com/images/mp4autotag_automated_autotagwnd.png) 
+![mp4autotag autotag automatedpreferences panel, other.](http://www.popmedic.com/images/mp4autotag_automatedwnd.0.1.3.png) 
 
 * **Left Panel** - This is a table that has the results of the "Fully Automated Autotag."  Select rows in this table to see the changed properties.  If you do not like the changes, click the "Undo" button in the "Right Panel."
 * **Right Panel** - This is a table showing the changes in the selected file of the "Left Panel."  Properties changed will be highlighted in red.  If you don't like the changes, click the "Undo" button. 
