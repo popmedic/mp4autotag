@@ -9,7 +9,7 @@
 #import "POPAppDelegate.h"
 #import "POPmp4v2dylibloader.h"
 #import "POPMp4FileTagSearch.h"
-#import "fixmoov.h"
+#import "POPmp4v2dylibloader.h"
 #include <dlfcn.h>
 
 @implementation POPAppDelegate
@@ -470,7 +470,7 @@
 			[otag mergeData:ntag];
 			[otag save];
 			if([[[NSUserDefaults standardUserDefaults] valueForKey:@"fixForNetwork"] intValue]) {
-				fixMOOV((char*)[[otag filename] cStringUsingEncoding:NSASCIIStringEncoding]);
+				_MP4Optimize((char*)[[otag filename] cStringUsingEncoding:NSASCIIStringEncoding], NULL);
 			}
 			if([[[NSUserDefaults standardUserDefaults] valueForKey:@"renameFile"] intValue]) {
 				[otag rename];

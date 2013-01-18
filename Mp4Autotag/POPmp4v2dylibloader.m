@@ -81,6 +81,7 @@
 	_MP4TagsSetComposerID        = dlsym(mp4v2_lib_handle, "MP4TagsSetComposerID");
 	_MP4TagsSetXID               = dlsym(mp4v2_lib_handle, "MP4TagsSetXID");
 	_MP4MakeIsmaCompliant        = dlsym(mp4v2_lib_handle, "MP4MakeIsmaCompliant");
+	_MP4Optimize				 = dlsym(mp4v2_lib_handle, "MP4Optimize");
 	if(!_MP4Modify)
 	{
 		@throw [NSException exceptionWithName:@"FileNotFoundException"
@@ -431,6 +432,12 @@
 	{
 		@throw [NSException exceptionWithName:@"FileNotFoundException"
 									   reason:@"Unable to load function MP4MakeIsmaCompliant"
+									 userInfo:nil];
+	}
+	if(!_MP4Optimize)
+	{
+		@throw [NSException exceptionWithName:@"FileNotFoundException"
+									   reason:@"Unable to load function MP4Optimize"
 									 userInfo:nil];
 	}
 }

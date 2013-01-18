@@ -181,5 +181,18 @@
          landmarkName = "-queryURL:"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Mp4Autotag/POPAutomatedAutotagWindow.m"
+         timestampString = "380231720.020997"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "125"
+         endingLineNumber = "125"
+         landmarkName = "-autotagQueue:"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

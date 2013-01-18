@@ -132,7 +132,7 @@
 										  forKeys:[NSArray arrayWithObjects:@"flag", @"value", nil]],
 				[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"-I", @"0", nil]
 										  forKeys:[NSArray arrayWithObjects:@"flag", @"value", nil]],
-				[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"-L", @"0", nil]
+				[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"-L", @"", nil]
 										  forKeys:[NSArray arrayWithObjects:@"flag", @"value", nil]],
 				[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"-k", @"Movies", nil]
 												   forKeys:[NSArray arrayWithObjects:@"flag", @"value", nil]],

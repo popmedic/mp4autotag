@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A22026B1644A35E00067C31 /* fixmoov.c in Sources */ = {isa = PBXBuildFile; fileRef = 0A22026A1644A35E00067C31 /* fixmoov.c */; };
 		0A3220D916599CB700DE3601 /* dropfilehere.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3220CE16599CB700DE3601 /* dropfilehere.png */; };
 		0A3220DA16599CB700DE3601 /* save_all.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3220CF16599CB700DE3601 /* save_all.png */; };
 		0A3220DB16599CB700DE3601 /* autotag_all.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3220D016599CB700DE3601 /* autotag_all.png */; };
@@ -70,8 +69,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A22026A1644A35E00067C31 /* fixmoov.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fixmoov.c; sourceTree = "<group>"; };
-		0A22026C1644A43D00067C31 /* fixmoov.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fixmoov.h; sourceTree = "<group>"; };
 		0A3220CE16599CB700DE3601 /* dropfilehere.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dropfilehere.png; path = Mp4Autotag/art/dropfilehere.png; sourceTree = "<group>"; };
 		0A3220CF16599CB700DE3601 /* save_all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = save_all.png; path = Mp4Autotag/art/save_all.png; sourceTree = "<group>"; };
 		0A3220D016599CB700DE3601 /* autotag_all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = autotag_all.png; path = Mp4Autotag/art/autotag_all.png; sourceTree = "<group>"; };
@@ -263,8 +260,6 @@
 				0A61524716285A9E00B41F2C /* POPImage.h */,
 				0A61524816285A9E00B41F2C /* POPImage.m */,
 				0A6581F516192A6800959142 /* POPXMLReader.m */,
-				0A22026A1644A35E00067C31 /* fixmoov.c */,
-				0A22026C1644A43D00067C31 /* fixmoov.h */,
 				0AFF009D168DFFE3008ED1B4 /* POPmp4v2dylibloader.h */,
 				0AFF009E168DFFE3008ED1B4 /* POPmp4v2dylibloader.m */,
 			);
@@ -384,7 +379,6 @@
 				0A6581F616192A6800959142 /* POPXMLReader.m in Sources */,
 				0A6581FA16192CCA00959142 /* POPTVDB.m in Sources */,
 				0A61524916285A9E00B41F2C /* POPImage.m in Sources */,
-				0A22026B1644A35E00067C31 /* fixmoov.c in Sources */,
 				0A9CB315166907D5007478FB /* POPAutomatedAutotagWindow.m in Sources */,
 				0A9CB319166918CB007478FB /* POPAutomatedAutotagQueueView.m in Sources */,
 				0A9CB31C16692AC6007478FB /* POPProgressWindow.m in Sources */,

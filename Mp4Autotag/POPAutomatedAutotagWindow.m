@@ -10,7 +10,7 @@
 #import "POPAutomatedAutotagQueueView.h"
 #import "POPMp4FileTag.h"
 #import "POPMp4FileTagSearch.h"
-#import "fixmoov.h"
+#import "POPmp4v2dylibloader.h"
 
 @implementation POPAutomatedAutotagWindow
 {
@@ -122,7 +122,9 @@
 				f = ((float)i + 0.90)/(float)[q count];
 				prog = f*100;
 				[[self progressWindow] show:msg progress:prog];
-				fixMOOV((char*)[[ntag filename] cStringUsingEncoding:NSASCIIStringEncoding]);
+				if(!_MP4Optimize((char*)[[ntag filename] cStringUsingEncoding:NSASCIIStringEncoding], NULL)){
+					NSLog(@"Unable to optimize. \"%@\"", [ntag filename]);
+				}
 			}
 			if([[[NSUserDefaults standardUserDefaults] valueForKey:@"renameFile"] intValue])
 			{
