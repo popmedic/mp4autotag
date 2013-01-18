@@ -41,13 +41,12 @@
 @synthesize mp4AutotagWindowSplitViewHorizontal = _mp4AutotagWindowSplitViewHorizontal;
 @synthesize mp4AutotagWindowSplitViewVertical = _mp4AutotagWindowSplitViewVertical;
 @synthesize saveAllButton = _saveAllButton;
-@synthesize autotagAllButton = _autotagAllButton;
+@synthesize automatedAutotagButton = _automatedAutotagButton;
 @synthesize removeButton = _removeButton;
 @synthesize saveButton = _saveButton;
 @synthesize autotagButton = _autotagButton;
 @synthesize preferencesButton = _preferencesButton;
 @synthesize preferencesRenameCheckBox = _preferencesRenameCheckBox;
-@synthesize preferencesFullAutomationCheckBox = _preferencesFullAutomationCheckBox;
 @synthesize preferencesEpisodeCoverArtMatrix = _preferencesEpisodeCoverArtMatrix;
 @synthesize preferencesUseITunesCheckBox = _preferencesUseITunesCheckBox;
 @synthesize dropFileHereImageWell = _dropFileHereImageWell;
@@ -67,8 +66,6 @@
 	//set up preferences
 	NSInteger i = [[[NSUserDefaults standardUserDefaults] valueForKey:@"renameFile"] intValue];
 	[[self preferencesRenameCheckBox] setState:i];
-	i = [[[NSUserDefaults standardUserDefaults] valueForKey:@"fullAutomation"] intValue];
-	[[self preferencesFullAutomationCheckBox] setState:i];
 	i = [[[NSUserDefaults standardUserDefaults] valueForKey:@"episodeCoverArt"] intValue];
 	[[self preferencesEpisodeCoverArtMatrix] setState:YES atRow:i column:0];
 	i = [[[NSUserDefaults standardUserDefaults] valueForKey:@"useITunes"] intValue];
@@ -188,24 +185,25 @@
 	{
 		//[[self dropFileHereImageWell] setHidden:YES];
 		[[self mp4FileTagsTableScrollView] setAlphaValue:1.0];
-		[[self autotagAllButton] setAction:@selector(autotagAllClick:)];
-		[[self saveAllButton] setAction:@selector(saveAllMp4Click:)];
-		if([_mp4FileTagTableView selectedRow] >= 0)
+		if([[_mp4FileTagTableView selectedRowIndexes] count] > 0)
 		{
 			[[self removeButton] setAction:@selector(removeMp4Click:)];
-			[[self autotagButton] setAction:@selector(autotagSelectedClick:)];
+			[[self autotagButton] setAction:@selector(autotagClick:)];
 			[[self saveButton] setAction:@selector(saveMp4Click:)];
-			[self showPropPanel];
+			[[self automatedAutotagButton] setAction:@selector(automatedAutotagClick:)];
+			if([[_mp4FileTagTableView selectedRowIndexes] count] == 1) [self showPropPanel];
+			else [self hidePropPanel];
 		}
 		else {
 			[[self removeButton] setAction:nil];
 			[[self autotagButton] setAction:nil];
 			[[self saveButton] setAction:nil];
+			[[self automatedAutotagButton] setAction:nil];
 			[self hidePropPanel];
 		}
 	}
 	else {
-		[[self autotagAllButton] setAction:nil];
+		[[self automatedAutotagButton] setAction:nil];
 		[[self saveAllButton] setAction:nil];
 		[[self removeButton] setAction:nil];
 		[[self autotagButton] setAction:nil];
@@ -233,23 +231,40 @@
 }
 
 - (IBAction)removeMp4Click:(id)sender {
-	if([[self mp4FileTagTableView] selectedRow] >= 0) 
-		[mp4FileTagTable removeMp4FileTagAt:(int)[[self mp4FileTagTableView] selectedRow]];
-	else 
-		NSRunAlertPanel(@"Mp4Autotag", 
+	NSIndexSet *idxSet = [[self mp4FileTagTableView] selectedRowIndexes];
+	if([idxSet count] > 0)
+	{
+		NSUInteger lastIndex = [idxSet lastIndex];
+		while (lastIndex != NSNotFound)
+		{
+			[mp4FileTagTable removeMp4FileTagAt:(int)lastIndex];
+			
+			//increment
+			lastIndex = [idxSet indexLessThanIndex: lastIndex];
+		}
+	}
+	else
+	{
+		NSRunAlertPanel(@"Mp4Autotag",
 						@"Please select a file first.",
 						@"OK", nil, nil);
-		
+	}
 }
 
 - (IBAction)saveMp4Click:(id)sender {
-	int idx = (int)[[self mp4FileTagTableView] selectedRow];
-	if(idx >= 0) 
-		[mp4FileTagTable saveMp4FileTagAt:idx];
-	else 
-		NSRunAlertPanel(@"Mp4Autotag", 
+	NSIndexSet *idxSet = [[self mp4FileTagTableView] selectedRowIndexes];
+	if([idxSet count] > 0)
+	{
+		[idxSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+			[mp4FileTagTable saveMp4FileTagAt:(int)idx];
+		}];
+	}
+	else
+	{
+		NSRunAlertPanel(@"Mp4Autotag",
 						@"Please select a file first.",
 						@"OK", nil, nil);
+	}
 }
 
 - (IBAction)saveAllMp4Click:(id)sender {
@@ -292,8 +307,6 @@
 - (IBAction)preferencesClick:(id)sender {
 	NSInteger i = [[[NSUserDefaults standardUserDefaults] valueForKey:@"renameFile"] intValue];
 	[[self preferencesRenameCheckBox] setState:i];
-	i = [[[NSUserDefaults standardUserDefaults] valueForKey:@"fullAutomation"] intValue];
-	[[self preferencesFullAutomationCheckBox] setState:i];
 	i = [[[NSUserDefaults standardUserDefaults] valueForKey:@"episodeCoverArt"] intValue];
 	[[self preferencesEpisodeCoverArtMatrix] setState:YES atRow:i column:0];
 	i = [[[NSUserDefaults standardUserDefaults] valueForKey:@"useITunes"] intValue];
@@ -317,7 +330,6 @@
 
 //autotaging functions.....
 -(bool) autotagNext {
-	//NSInteger fa = [[[NSUserDefaults standardUserDefaults] valueForKey:@"fullAutomation"] intValue];
 	if(attags_idx < [attags count]) {
 		POPMp4FileTag* tag = [attags objectAtIndex:attags_idx];
 		attags_idx = attags_idx + 1;
@@ -332,35 +344,27 @@
 		}
 		mp4SearchFileTagTable = [[POPMp4FileTagSearch alloc] init];
 		[[self searchTableView] setDataSource:(id<NSTableViewDataSource>)mp4SearchFileTagTable];
-		[mp4SearchFileTagTable searchWithFileTag:tag /*tableView:[self searchTableView]*/];
+		[mp4SearchFileTagTable searchWithFileTag:tag];
 		[[self searchTableView] reloadData];
 		[[self searchTableView] selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 		[_loadWnd hide];
 		
 		if([[self searchTableView] numberOfRows] == 0)
 		{
-			/*if(fa){
+			NSInteger rtn =  NSRunAlertPanel(@"Mp4Autotag",
+											 @"Unable to find movie/show in databases. Try a custom search, or skip this file?",
+											 @"Custom Search", 
+											 @"Skip File", 
+											 nil);
+			if(rtn == NSAlertDefaultReturn)
+			{
+				[self searchResultWindowSearchClick:self];
+			}
+			else if(rtn == NSAlertAlternateReturn)
+			{
 				[self autotagNext];
 			}
-			else{*/
-				NSInteger rtn =  NSRunAlertPanel(@"Mp4Autotag", 
-												 @"Unable to find movie/show in databases. Try a custom search, or skip this file?",
-												 @"Custom Search", 
-												 @"Skip File", 
-												 nil);
-				if(rtn == NSAlertDefaultReturn)
-				{
-					[self searchResultWindowSearchClick:self];
-				}
-				else if(rtn == NSAlertAlternateReturn)
-				{
-					[self autotagNext];
-				}
-			//}
 		}
-		/*else if(fa){
-			[self searchTagClick:self];
-		}*/
 		
 		return true;
 	}
@@ -369,58 +373,59 @@
 }
 
 -(void) autotag {
-	//NSInteger fa = [[[NSUserDefaults standardUserDefaults] valueForKey:@"fullAutomation"] intValue];
 	[[self customSearchWindowUseSameSeriesCheckBox] setState:NO];
-	//if(fa) [_loadWnd show:@"Preforming Full Automation Autotag..."];
 	[[NSApplication sharedApplication] beginSheet:[self searchResultWindow] 
 								   modalForWindow:[self window]
 									modalDelegate:self
 								   didEndSelector:@selector(searchResultSheetEnded:returnCode:contextInfo:) 
 									  contextInfo:(void*)[self searchResultWindow]];
 	[self autotagNext];
-	//if(fa) [_loadWnd hide];
 }
 
-- (IBAction)autotagSelectedClick:(id)sender {
-	int idx = (int)[[self mp4FileTagTableView] selectedRow];
-	if(idx >= 0) {
-		POPMp4FileTag* tag = [[mp4FileTagTable mp4tags] objectAtIndex:idx];
-		
-		attags = [NSArray arrayWithObject:tag];
+- (IBAction)autotagClick:(id)sender {
+	NSIndexSet *idxSet = [[self mp4FileTagTableView] selectedRowIndexes];
+	if([idxSet count] > 0)
+	{
+		NSMutableArray* ma = [[NSMutableArray alloc] init];
+		[idxSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+			POPMp4FileTag* tag = [[mp4FileTagTable mp4tags] objectAtIndex:idx];
+			[ma addObject:tag];
+		}];
+		attags = ma;
 		attags_idx = 0;
 		[self autotag];
 	}
-	else 
-		NSRunAlertPanel(@"Mp4Autotag", 
+	else
+	{
+		NSRunAlertPanel(@"Mp4Autotag",
 						@"Please select a file first.",
 						@"OK", nil, nil);
+	}
 }
 
-- (IBAction)autotagAllClick:(id)sender {
-	NSInteger fa = [[[NSUserDefaults standardUserDefaults] valueForKey:@"fullAutomation"] intValue];
-	attags = [mp4FileTagTable mp4tags];
-	attags_idx = 0;
-	if([attags count] > 0)
-	{	
-		if(fa)
-		{
-			[[self automatedAutotagWindow] clearResults];
-			[[NSApplication sharedApplication] beginSheet:[self automatedAutotagWindow]
-										   modalForWindow:[self window]
-											modalDelegate:self//[self automatedAutotagWindow]
-										   didEndSelector:@selector(automatedAutotagWindowSheetEnded:returnCode:contextInfo:)
-											  contextInfo:(void*)[self automatedAutotagWindow]];
-			[[self automatedAutotagWindow] autotagQueue:attags];
-		}
-		else
-		{
-			[self autotag];
-		}
-	}
-	else 
+- (IBAction)automatedAutotagClick:(id)sender {
+	NSIndexSet *idxSet = [[self mp4FileTagTableView] selectedRowIndexes];
+	if([idxSet count] > 0)
 	{
-		NSRunAlertPanel(@"Mp4Autotag", 
-						@"Please add a file first.",
+		NSMutableArray* ma = [[NSMutableArray alloc] init];
+		[idxSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+			POPMp4FileTag* tag = [[mp4FileTagTable mp4tags] objectAtIndex:idx];
+			[ma addObject:tag];
+		}];
+		attags = ma;
+		attags_idx = 0;
+		[[self automatedAutotagWindow] clearResults];
+		[[NSApplication sharedApplication] beginSheet:[self automatedAutotagWindow]
+									   modalForWindow:[self window]
+										modalDelegate:self//[self automatedAutotagWindow]
+									   didEndSelector:@selector(automatedAutotagWindowSheetEnded:returnCode:contextInfo:)
+										  contextInfo:(void*)[self automatedAutotagWindow]];
+		[[self automatedAutotagWindow] autotagQueue:attags];
+	}
+	else
+	{
+		NSRunAlertPanel(@"Mp4Autotag",
+						@"Please select a file first.",
 						@"OK", nil, nil);
 	}
 }
@@ -563,7 +568,6 @@
 						contextInfo:(NSObject*)cInfo
 {
 	[[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%li", [[self preferencesRenameCheckBox] state]] forKey:@"renameFile"];
-	[[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%li", [[self preferencesFullAutomationCheckBox] state]] forKey:@"fullAutomation"];
 	[[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%li", [[self preferencesEpisodeCoverArtMatrix] selectedRow]] forKey:@"episodeCoverArt"];
 	[[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%li", [[self preferencesUseITunesCheckBox] state]] forKey:@"useITunes"];
 	[[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%li", [[self preferencesFixForNetworkCheckBox] state]] forKey:@"fixForNetwork"];

@@ -116,14 +116,16 @@
 			[[self progressWindow] show:msg progress:prog];
 			[ntag mergeData:stag];
 			[ntag save];
-			if([[[NSUserDefaults standardUserDefaults] valueForKey:@"fixForNetwork"] intValue]) {
+			if([[[NSUserDefaults standardUserDefaults] valueForKey:@"fixForNetwork"] intValue])
+			{
 				msg = [NSString stringWithFormat:@"Fixing MOOV on: %@", [ntag filename]];
 				f = ((float)i + 0.90)/(float)[q count];
 				prog = f*100;
 				[[self progressWindow] show:msg progress:prog];
 				fixMOOV((char*)[[ntag filename] cStringUsingEncoding:NSASCIIStringEncoding]);
 			}
-			if([[[NSUserDefaults standardUserDefaults] valueForKey:@"renameFile"] intValue]) {
+			if([[[NSUserDefaults standardUserDefaults] valueForKey:@"renameFile"] intValue])
+			{
 				msg = [NSString stringWithFormat:@"Renaming: %@", [ntag filename]];
 				f = ((float)i + 0.95)/(float)[q count];
 				prog = f*100;

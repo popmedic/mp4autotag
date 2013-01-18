@@ -184,7 +184,7 @@ objectValueForTableColumn:(NSTableColumn*)aTableColumn
 -(void) refreshProperies {
 	if(_propertyView != nil)
 	{
-		if([_tableView selectedRow] >= 0)
+		if([[_tableView selectedRowIndexes] count] == 1)
 		{
 			POPMp4FileTag* tag = [_mp4tags objectAtIndex:[_tableView selectedRow]];
 			[_propertyView setDataSource:(id<NSTableViewDataSource>)tag];

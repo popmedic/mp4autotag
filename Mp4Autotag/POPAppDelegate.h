@@ -37,13 +37,12 @@ typedef enum preferencesEpisodeCoverArtOption {useUnique, useSeries, useSeriesWa
 @property (weak) IBOutlet NSSplitView *mp4AutotagWindowSplitViewHorizontal;
 @property (weak) IBOutlet NSSplitView *mp4AutotagWindowSplitViewVertical;
 @property (weak) IBOutlet NSToolbarItem *saveAllButton;
-@property (weak) IBOutlet NSToolbarItem *autotagAllButton;
+@property (weak) IBOutlet NSToolbarItem *automatedAutotagButton;
 @property (weak) IBOutlet NSToolbarItem *removeButton;
 @property (weak) IBOutlet NSToolbarItem *saveButton;
 @property (weak) IBOutlet NSToolbarItem *autotagButton;
 @property (weak) IBOutlet NSToolbarItem *preferencesButton;
 @property (weak) IBOutlet NSButton *preferencesRenameCheckBox;
-@property (weak) IBOutlet NSButton *preferencesFullAutomationCheckBox;
 @property (weak) IBOutlet NSMatrix *preferencesEpisodeCoverArtMatrix;
 @property (weak) IBOutlet NSButton *preferencesUseITunesCheckBox;
 @property (weak) IBOutlet NSImageView *dropFileHereImageWell;
@@ -57,10 +56,10 @@ typedef enum preferencesEpisodeCoverArtOption {useUnique, useSeries, useSeriesWa
 - (IBAction)saveMp4Click:(id)sender;
 - (IBAction)saveAllMp4Click:(id)sender;
 - (IBAction)selectImageClick:(id)sender;
-- (IBAction)autotagSelectedClick:(id)sender;
+- (IBAction)autotagClick:(id)sender;
 - (IBAction)preferencesClick:(id)sender;
 - (IBAction)searchResultWindowSearchClick:(id)sender;
-- (IBAction)autotagAllClick:(id)sender;
+- (IBAction)automatedAutotagClick:(id)sender;
 - (IBAction)searchTagClick:(id)sender;
 - (IBAction)searchDoneClick:(id)sender;
 - (IBAction)customSearchWindowSearchClick:(id)sender;
