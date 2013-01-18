@@ -10,11 +10,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Mp4Autotag/POPMp4FileTag.m"
-         timestampString = "378406789.34623"
+         timestampString = "379008215.120209"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "188"
-         endingLineNumber = "188"
+         startingLineNumber = "201"
+         endingLineNumber = "201"
          landmarkName = "-initWithFile:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -169,6 +169,19 @@
          startingLineNumber = "21"
          endingLineNumber = "21"
          landmarkName = "-queryURL:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Mp4Autotag/POPAutomatedAutotagWindow.m"
+         timestampString = "380231720.020997"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "125"
+         endingLineNumber = "125"
+         landmarkName = "-autotagQueue:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -41,6 +41,11 @@ class SearchShow
       tvnetwork = SearchShow.safe_get(serdoc.elements['Data/Series/Network'])
       release = SearchShow.safe_get(serdoc.elements['Data/Series/FirstAired'])
       serposter = SearchShow.safe_get(serdoc.elements['Data/Series/poster'])
+      sercnt = 0
+      serdoc.elements.each('Data/Episode') do |nx2| 
+        sercnt = sercnt + 1 
+      end
+      seridx = 0
       #go though all the episodes
       self.dbug "SETTING ALL EPISODES FOR: %s" % [tvshow] 
       serdoc.elements.each('Data/Episode') do |episode|
@@ -57,25 +62,32 @@ class SearchShow
         writer = SearchShow.safe_get(episode.elements['Writer'])
         director = SearchShow.safe_get(episode.elements['Director'])
         rel2 = SearchShow.safe_get(episode.elements['FirstAired'])
+        seridx = seridx + 1
         if(rel2.casecmp("") != 0) 
           release = rel2
         end
         #set the new tag
         tag = Tag.create_tag
         tag['Media Type']['value'] = "tvshow"
-        tag['Artist']['value'] = actors
+        tag["Category"]['value'] = "TVShows"
+        tag['Artist']['value'] = actors.gsub(/^\||\|$/, '')
         tag['TV Show']['value'] = tvshow
         tag['Grouping']['value'] = tvshow
-        tag['Genre']['value'] = genres
+        tag['Genre']['value'] = genres.gsub(/^\||\|$/, '')
         tag['TV Network']['value'] = tvnetwork
         tag['Release Date']['value'] = release
         tag['Copyright']['value'] = release
         tag['TV Episode']['value'] = epinum.to_s
         tag['TV Season']['value'] = seanum.to_s
         tag['cnID']['value'] = epiid
-        tag['Track']['value'] = absnum.to_s
+        tag['Track']['value'] = seridx.to_s
+        tag['Tracks']['value'] = sercnt.to_s
+        #tag['Disk']['value'] = "1"
+        #tag['Disks']]'value'] = "1"
+        tag['TV Episode Number']['value'] = epiname
         tag['Album']['value'] = epiname
         tag['Short Description']['value'] = desc
+        tag['Long Description']['value'] = desc
         tag['Composer']['value'] = writer
         tag['Album Artist']['value'] = director
         tag['Name']['value'] = "%s - S%0.2iE%0.2i - %s" % [tvshow, seanum, epinum, epiname]

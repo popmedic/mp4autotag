@@ -76,9 +76,11 @@ class SearchMovie
     tag = Tag.create_tag
     if(json != nil)
       tag["Media Type"]['value'] = "movie"
+      tag["Category"]['value'] = "Movies"
       tag["dbid"] = SearchMovie::get_safe(json, 'id').to_s
-      tag["cnID"]['value'] = SearchMovie::get_safe(json, 'id')
+      tag["cnID"]['value'] = SearchMovie::get_safe(json, 'id').to_s
       tag["Short Description"]['value'] = SearchMovie::get_safe(json, 'overview')
+      tag["Long Description"]['value'] = tag["Short Description"]['value']
       tag['Release Date']['value'] = SearchMovie::get_safe(json, 'release_date')
       tag['TV Show']['value'] = SearchMovie::get_safe(json, 'title')
       tag['Album']['value'] = SearchMovie::get_safe(json, 'title')

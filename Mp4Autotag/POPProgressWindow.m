@@ -65,5 +65,6 @@
 								   didEndSelector:nil
 									  contextInfo:(void*)self];
 	[self show:msg progress:percent];
+	[[self progressBar] display];
 }
 @end

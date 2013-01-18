@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A22026B1644A35E00067C31 /* fixmoov.c in Sources */ = {isa = PBXBuildFile; fileRef = 0A22026A1644A35E00067C31 /* fixmoov.c */; };
 		0A3220D916599CB700DE3601 /* dropfilehere.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3220CE16599CB700DE3601 /* dropfilehere.png */; };
 		0A3220DA16599CB700DE3601 /* save_all.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3220CF16599CB700DE3601 /* save_all.png */; };
 		0A3220DB16599CB700DE3601 /* autotag_all.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3220D016599CB700DE3601 /* autotag_all.png */; };
@@ -32,6 +31,7 @@
 		0A61524916285A9E00B41F2C /* POPImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A61524816285A9E00B41F2C /* POPImage.m */; };
 		0A6581F616192A6800959142 /* POPXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6581F516192A6800959142 /* POPXMLReader.m */; };
 		0A6581FA16192CCA00959142 /* POPTVDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6581F916192CCA00959142 /* POPTVDB.m */; };
+		0A6DE5501697718F004E8883 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABBE56816972DC80018765A /* ScriptingBridge.framework */; };
 		0A85B7BB165E92D200D5127E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A85B7BA165E92D200D5127E /* Sparkle.framework */; };
 		0A85B7BE165E933400D5127E /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A85B7BA165E92D200D5127E /* Sparkle.framework */; };
 		0A8E77AB161760CA0027EB83 /* POPTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E77AA161760CA0027EB83 /* POPTask.m */; };
@@ -43,6 +43,7 @@
 		0A9CB319166918CB007478FB /* POPAutomatedAutotagQueueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CB318166918CA007478FB /* POPAutomatedAutotagQueueView.m */; };
 		0A9CB31C16692AC6007478FB /* POPProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CB31B16692AC6007478FB /* POPProgressWindow.m */; };
 		0A9CB321166959EF007478FB /* POPAutomatedAutotagPropertyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CB320166959EE007478FB /* POPAutomatedAutotagPropertyView.m */; };
+		0AA4DB5616A9C35400A7AC08 /* libmp4v2.2.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA4DB5416A9C33700A7AC08 /* libmp4v2.2.dylib */; };
 		0AAC9B97161718980067F41E /* POPLoadingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC9B96161718980067F41E /* POPLoadingWindow.m */; };
 		0AAC9B9C16173DB30067F41E /* POPMp4FileTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC9B9B16173DB30067F41E /* POPMp4FileTag.m */; };
 		0AD663751614B4D2005EA39C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD663741614B4D2005EA39C /* Cocoa.framework */; };
@@ -52,11 +53,14 @@
 		0AD663881614B4D2005EA39C /* POPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD663871614B4D2005EA39C /* POPAppDelegate.m */; };
 		0AD6638B1614B4D3005EA39C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD663891614B4D3005EA39C /* MainMenu.xib */; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 		0AFFFC24168D5AF2008ED1B4 /* mp4art in Resources */ = {isa = PBXBuildFile; fileRef = 0AFFFC21168D5AF2008ED1B4 /* mp4art */; };
 		0AFFFC25168D5AF2008ED1B4 /* mp4info in Resources */ = {isa = PBXBuildFile; fileRef = 0AFFFC22168D5AF2008ED1B4 /* mp4info */; };
 		0AFFFC26168D5AF2008ED1B4 /* mp4tags in Resources */ = {isa = PBXBuildFile; fileRef = 0AFFFC23168D5AF2008ED1B4 /* mp4tags */; };
 =======
 		0AFF0095168DEAD4008ED1B4 /* libmp4v2.2.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */; };
+=======
+>>>>>>> stable.0.1.3
 		0AFF009F168DFFE3008ED1B4 /* POPmp4v2dylibloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF009E168DFFE3008ED1B4 /* POPmp4v2dylibloader.m */; };
 >>>>>>> loop-back-for-master
 /* End PBXBuildFile section */
@@ -75,8 +79,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A22026A1644A35E00067C31 /* fixmoov.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fixmoov.c; sourceTree = "<group>"; };
-		0A22026C1644A43D00067C31 /* fixmoov.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fixmoov.h; sourceTree = "<group>"; };
 		0A3220CE16599CB700DE3601 /* dropfilehere.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dropfilehere.png; path = Mp4Autotag/art/dropfilehere.png; sourceTree = "<group>"; };
 		0A3220CF16599CB700DE3601 /* save_all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = save_all.png; path = Mp4Autotag/art/save_all.png; sourceTree = "<group>"; };
 		0A3220D016599CB700DE3601 /* autotag_all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = autotag_all.png; path = Mp4Autotag/art/autotag_all.png; sourceTree = "<group>"; };
@@ -125,10 +127,13 @@
 		0A9CB31B16692AC6007478FB /* POPProgressWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPProgressWindow.m; sourceTree = "<group>"; };
 		0A9CB31F166959EE007478FB /* POPAutomatedAutotagPropertyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAutomatedAutotagPropertyView.h; sourceTree = "<group>"; };
 		0A9CB320166959EE007478FB /* POPAutomatedAutotagPropertyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPAutomatedAutotagPropertyView.m; sourceTree = "<group>"; };
+		0AA4DB5416A9C33700A7AC08 /* libmp4v2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmp4v2.2.dylib; sourceTree = "<group>"; };
 		0AAC9B95161718980067F41E /* POPLoadingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPLoadingWindow.h; sourceTree = "<group>"; };
 		0AAC9B96161718980067F41E /* POPLoadingWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPLoadingWindow.m; sourceTree = "<group>"; };
 		0AAC9B9A16173DB30067F41E /* POPMp4FileTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPMp4FileTag.h; sourceTree = "<group>"; };
 		0AAC9B9B16173DB30067F41E /* POPMp4FileTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPMp4FileTag.m; sourceTree = "<group>"; };
+		0ABBE56616972D650018765A /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
+		0ABBE56816972DC80018765A /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		0AD663701614B4D2005EA39C /* Mp4Autotag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mp4Autotag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD663741614B4D2005EA39C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		0AD663771614B4D2005EA39C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -143,11 +148,14 @@
 		0AD663871614B4D2005EA39C /* POPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POPAppDelegate.m; sourceTree = "<group>"; };
 		0AD6638A1614B4D3005EA39C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 		0AFFFC21168D5AF2008ED1B4 /* mp4art */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mp4art; path = Mp4Autotag/bin/mp4art; sourceTree = "<group>"; };
 		0AFFFC22168D5AF2008ED1B4 /* mp4info */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mp4info; path = Mp4Autotag/bin/mp4info; sourceTree = "<group>"; };
 		0AFFFC23168D5AF2008ED1B4 /* mp4tags */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mp4tags; path = Mp4Autotag/bin/mp4tags; sourceTree = "<group>"; };
 =======
 		0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmp4v2.2.dylib; sourceTree = "<group>"; };
+=======
+>>>>>>> stable.0.1.3
 		0AFF009D168DFFE3008ED1B4 /* POPmp4v2dylibloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPmp4v2dylibloader.h; sourceTree = "<group>"; };
 		0AFF009E168DFFE3008ED1B4 /* POPmp4v2dylibloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPmp4v2dylibloader.m; sourceTree = "<group>"; };
 >>>>>>> loop-back-for-master
@@ -158,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A6DE5501697718F004E8883 /* ScriptingBridge.framework in Frameworks */,
 				0AD663751614B4D2005EA39C /* Cocoa.framework in Frameworks */,
 				0A85B7BB165E92D200D5127E /* Sparkle.framework in Frameworks */,
 			);
@@ -197,9 +206,12 @@
 			isa = PBXGroup;
 			children = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 				0AFF008D168D6C64008ED1B4 /* libmp4v2.2.dylib */,
 >>>>>>> loop-back-for-master
+=======
+>>>>>>> stable.0.1.3
 				0A5BDF39166FC90B00E537FF /* mp4autotag.icns */,
 				0AFFFC20168D5AD1008ED1B4 /* bin */,
 				0AAC9B99161718B60067F41E /* Artwork */,
@@ -221,6 +233,7 @@
 		0AD663731614B4D2005EA39C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0ABBE56816972DC80018765A /* ScriptingBridge.framework */,
 				0A85B7BA165E92D200D5127E /* Sparkle.framework */,
 				0AD663741614B4D2005EA39C /* Cocoa.framework */,
 				0AD663761614B4D2005EA39C /* Other Frameworks */,
@@ -241,6 +254,7 @@
 		0AD6637A1614B4D2005EA39C /* Mp4Autotag */ = {
 			isa = PBXGroup;
 			children = (
+				0ABBE56616972D650018765A /* iTunes.h */,
 				0A5BDF59166FF0D400E537FF /* mp4autotag_pub.pem */,
 				0A5BDF53166FDF4400E537FF /* Mp4Autotag.entitlements */,
 				0AD663891614B4D3005EA39C /* MainMenu.xib */,
@@ -274,8 +288,6 @@
 				0A61524716285A9E00B41F2C /* POPImage.h */,
 				0A61524816285A9E00B41F2C /* POPImage.m */,
 				0A6581F516192A6800959142 /* POPXMLReader.m */,
-				0A22026A1644A35E00067C31 /* fixmoov.c */,
-				0A22026C1644A43D00067C31 /* fixmoov.h */,
 				0AFF009D168DFFE3008ED1B4 /* POPmp4v2dylibloader.h */,
 				0AFF009E168DFFE3008ED1B4 /* POPmp4v2dylibloader.m */,
 			);
@@ -285,6 +297,7 @@
 		0AD6637B1614B4D2005EA39C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0AA4DB5416A9C33700A7AC08 /* libmp4v2.2.dylib */,
 				0AD6637C1614B4D2005EA39C /* Mp4Autotag-Info.plist */,
 				0AD6637D1614B4D2005EA39C /* InfoPlist.strings */,
 				0AD663801614B4D2005EA39C /* main.m */,
@@ -357,7 +370,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AFF0095168DEAD4008ED1B4 /* libmp4v2.2.dylib in Resources */,
+				0AA4DB5616A9C35400A7AC08 /* libmp4v2.2.dylib in Resources */,
+				0A5BDF5A166FF0D400E537FF /* mp4autotag_pub.pem in Resources */,
 				0AD6637F1614B4D2005EA39C /* InfoPlist.strings in Resources */,
 				0AD663851614B4D2005EA39C /* Credits.rtf in Resources */,
 				0AD6638B1614B4D3005EA39C /* MainMenu.xib in Resources */,
@@ -381,10 +395,13 @@
 				0A5BDF36166FC8BD00E537FF /* save_all@2x.png in Resources */,
 				0A5BDF37166FC8BD00E537FF /* save@2x.png in Resources */,
 				0A5BDF38166FC8BD00E537FF /* search@2x.png in Resources */,
+<<<<<<< HEAD
 				0A5BDF5A166FF0D400E537FF /* mp4autotag_pub.pem in Resources */,
 				0AFFFC24168D5AF2008ED1B4 /* mp4art in Resources */,
 				0AFFFC25168D5AF2008ED1B4 /* mp4info in Resources */,
 				0AFFFC26168D5AF2008ED1B4 /* mp4tags in Resources */,
+=======
+>>>>>>> stable.0.1.3
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +424,6 @@
 				0A6581F616192A6800959142 /* POPXMLReader.m in Sources */,
 				0A6581FA16192CCA00959142 /* POPTVDB.m in Sources */,
 				0A61524916285A9E00B41F2C /* POPImage.m in Sources */,
-				0A22026B1644A35E00067C31 /* fixmoov.c in Sources */,
 				0A9CB315166907D5007478FB /* POPAutomatedAutotagWindow.m in Sources */,
 				0A9CB319166918CB007478FB /* POPAutomatedAutotagQueueView.m in Sources */,
 				0A9CB31C16692AC6007478FB /* POPProgressWindow.m in Sources */,
@@ -500,8 +516,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+<<<<<<< HEAD
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_ENTITLEMENTS = Mp4Autotag/Mp4Autotag.entitlements;
+=======
+				CLANG_CXX_LIBRARY = "libstdc++";
+>>>>>>> stable.0.1.3
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -520,9 +540,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Mp4Autotag\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = "";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -532,8 +554,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+<<<<<<< HEAD
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_ENTITLEMENTS = Mp4Autotag/Mp4Autotag.entitlements;
+=======
+				CLANG_CXX_LIBRARY = "libstdc++";
+>>>>>>> stable.0.1.3
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -552,9 +578,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Mp4Autotag\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = "";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};

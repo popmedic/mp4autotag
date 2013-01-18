@@ -103,7 +103,7 @@ class Search
       row = res[0]
       #keys = row.keys
       keys = ["Name","Image Path","Series Image Path","TV Show","TV Season","TV Episode",
-              "Media Type","Genre","Artist","Composer","Release Date","Album",
+              "Category","Media Type","Genre","Artist","Composer","Release Date","Album",
               "Track","Grouping","Comments","Album Artist","Copyright","TV Network",
               "TV Episode Number","Short Description","cnID","dbid"]
       html << "<thead><tr>"

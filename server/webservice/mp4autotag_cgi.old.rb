@@ -15,7 +15,7 @@ cgi = CGI.new
 
 #log the users coming in...
 File.open('ulog.txt','a+') do |f|
-  f.write("REMOTE_ADDR: %s\tQUERY_STRING: %s\n" % [cgi.remote_addr, cgi.query_string])
+  f.write("REMOTE_ADDR: %s\n" % cgi['REMOTE_ADDR'])
 end
 
 search_str = cgi['search']
@@ -27,13 +27,6 @@ end
 use_itunes = cgi['use_itunes'].to_i
   
 res = Search.search(URI.unescape(search_str), use_itunes)
-
-#log a non-hit...
-if(res.count == 0)
-  File.open('misslog.txt','a+') do |f|
-    f.write("%s\n" % [search_str])
-  end
-end
 
 if(/\.json/i.match($OUT_FMT) != nil)
   cgi.out("text/plain") { res.to_json }

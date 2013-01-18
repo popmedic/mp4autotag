@@ -10,7 +10,7 @@
 #import "POPAutomatedAutotagQueueView.h"
 #import "POPMp4FileTag.h"
 #import "POPMp4FileTagSearch.h"
-#import "fixmoov.h"
+#import "POPmp4v2dylibloader.h"
 
 @implementation POPAutomatedAutotagWindow
 {
@@ -111,21 +111,25 @@
 		POPMp4FileTag* stag = [mp4SearchFileTagTable chooseResult:0];
 		if(stag != nil){
 			msg = [NSString stringWithFormat:@"Merge and save: %@", [ntag filename]];
-			f = ((float)i + 0.33)/(float)[q count];
+			f = ((float)i + 0.80)/(float)[q count];
 			prog = f*100;
 			[[self progressWindow] show:msg progress:prog];
 			[ntag mergeData:stag];
 			[ntag save];
-			if([[[NSUserDefaults standardUserDefaults] valueForKey:@"fixForNetwork"] intValue]) {
+			if([[[NSUserDefaults standardUserDefaults] valueForKey:@"fixForNetwork"] intValue])
+			{
 				msg = [NSString stringWithFormat:@"Fixing MOOV on: %@", [ntag filename]];
-				f = ((float)i + 0.66)/(float)[q count];
+				f = ((float)i + 0.90)/(float)[q count];
 				prog = f*100;
 				[[self progressWindow] show:msg progress:prog];
-				fixMOOV((char*)[[ntag filename] cStringUsingEncoding:NSASCIIStringEncoding]);
+				if(!_MP4Optimize((char*)[[ntag filename] cStringUsingEncoding:NSASCIIStringEncoding], NULL)){
+					NSLog(@"Unable to optimize. \"%@\"", [ntag filename]);
+				}
 			}
-			if([[[NSUserDefaults standardUserDefaults] valueForKey:@"renameFile"] intValue]) {
+			if([[[NSUserDefaults standardUserDefaults] valueForKey:@"renameFile"] intValue])
+			{
 				msg = [NSString stringWithFormat:@"Renaming: %@", [ntag filename]];
-				f = ((float)i + 0.66)/(float)[q count];
+				f = ((float)i + 0.95)/(float)[q count];
 				prog = f*100;
 				[[self progressWindow] show:msg progress:prog];
 				[ntag rename];
@@ -137,6 +141,7 @@
 		NSArray *tags = [NSArray arrayWithObjects:otag, ntag, nil];
 		[results addObject:tags];
 		[[self queueView] reloadData];
+		[[self queueView] display];
 	}
 	mp4SearchFileTagTable = nil;
 	[[self progressWindow] show:@"Done..." progress:100];
