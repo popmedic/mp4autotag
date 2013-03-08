@@ -16,6 +16,7 @@
 		0A3220E016599CB700DE3601 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3220D516599CB700DE3601 /* plus.png */; };
 		0A3220E116599CB700DE3601 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3220D616599CB700DE3601 /* save.png */; };
 		0A3220E216599CB700DE3601 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3220D716599CB700DE3601 /* search.png */; };
+		0A4766CD16EA828B0028828B /* mp4autotag_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0A5BDF59166FF0D400E537FF /* mp4autotag_pub.pem */; };
 		0A5BDF2E166FC8BD00E537FF /* autotag_all@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5BDF23166FC8BC00E537FF /* autotag_all@2x.png */; };
 		0A5BDF2F166FC8BD00E537FF /* autotag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5BDF24166FC8BC00E537FF /* autotag@2x.png */; };
 		0A5BDF30166FC8BD00E537FF /* dropfilehere@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5BDF25166FC8BC00E537FF /* dropfilehere@2x.png */; };
@@ -27,14 +28,12 @@
 		0A5BDF36166FC8BD00E537FF /* save_all@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5BDF2B166FC8BD00E537FF /* save_all@2x.png */; };
 		0A5BDF37166FC8BD00E537FF /* save@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5BDF2C166FC8BD00E537FF /* save@2x.png */; };
 		0A5BDF38166FC8BD00E537FF /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5BDF2D166FC8BD00E537FF /* search@2x.png */; };
-		0A5BDF5A166FF0D400E537FF /* mp4autotag_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0A5BDF59166FF0D400E537FF /* mp4autotag_pub.pem */; };
 		0A61524916285A9E00B41F2C /* POPImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A61524816285A9E00B41F2C /* POPImage.m */; };
 		0A6581F616192A6800959142 /* POPXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6581F516192A6800959142 /* POPXMLReader.m */; };
 		0A6581FA16192CCA00959142 /* POPTVDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6581F916192CCA00959142 /* POPTVDB.m */; };
 		0A6DE5501697718F004E8883 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABBE56816972DC80018765A /* ScriptingBridge.framework */; };
 		0A85B7BB165E92D200D5127E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A85B7BA165E92D200D5127E /* Sparkle.framework */; };
 		0A85B7BE165E933400D5127E /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A85B7BA165E92D200D5127E /* Sparkle.framework */; };
-		0A8745D716AB89FB00BAEFE2 /* Mp4Autotag.app in Resources */ = {isa = PBXBuildFile; fileRef = 0AD663701614B4D2005EA39C /* Mp4Autotag.app */; };
 		0A8E77AB161760CA0027EB83 /* POPTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E77AA161760CA0027EB83 /* POPTask.m */; };
 		0A8E77BD16177CFF0027EB83 /* POPMp4FileTagTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E77BC16177CFF0027EB83 /* POPMp4FileTagTable.m */; };
 		0A8E77C5161877AC0027EB83 /* POPFileMan.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E77C4161877AC0027EB83 /* POPFileMan.m */; };
@@ -334,7 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA4DB5616A9C35400A7AC08 /* libmp4v2.2.dylib in Resources */,
-				0A5BDF5A166FF0D400E537FF /* mp4autotag_pub.pem in Resources */,
+				0A4766CD16EA828B0028828B /* mp4autotag_pub.pem in Resources */,
 				0AD6637F1614B4D2005EA39C /* InfoPlist.strings in Resources */,
 				0AD663851614B4D2005EA39C /* Credits.rtf in Resources */,
 				0AD6638B1614B4D3005EA39C /* MainMenu.xib in Resources */,
@@ -358,8 +357,6 @@
 				0A5BDF36166FC8BD00E537FF /* save_all@2x.png in Resources */,
 				0A5BDF37166FC8BD00E537FF /* save@2x.png in Resources */,
 				0A5BDF38166FC8BD00E537FF /* search@2x.png in Resources */,
-				0A5BDF5A166FF0D400E537FF /* mp4autotag_pub.pem in Resources */,
-				0A8745D716AB89FB00BAEFE2 /* Mp4Autotag.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,7 +472,6 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libstdc++";
-				CODE_SIGN_ENTITLEMENTS = Mp4Autotag/Mp4Autotag.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -509,7 +505,6 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libstdc++";
-				CODE_SIGN_ENTITLEMENTS = Mp4Autotag/Mp4Autotag.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
