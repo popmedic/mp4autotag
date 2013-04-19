@@ -40,7 +40,7 @@
 	_customSeriesSearch = NO;
 	_seriesImageUrl = nil;
 	_imageUrl = nil;
-	numFlags = [NSArray arrayWithObjects:@"-b", @"-d",@"-D",@"-H",@"-I",@"-l",@"-L",@"-M",@"-n",@"-t",@"-T",@"-y", nil];
+	numFlags = [NSArray arrayWithObjects:@"-b", @"-d",@"-D",@"-H",@"-I",@"-L",@"-M",@"-n",@"-t",@"-T",@"-y", nil];
 	allowedMediaTypes = [NSArray arrayWithObjects:@"tvshow", @"movie", @"music", nil];
 	doNotMerge = [NSArray arrayWithObject:@"Purchase Date"];
 	keysOrder = [NSArray arrayWithObjects:
