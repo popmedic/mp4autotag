@@ -90,7 +90,7 @@ class SearchMovie
       ja.each do |artist|
         artists << artist["name"]
       end
-      tag['Artist']['value'] = artists.join('|')
+      tag['Artist']['value'] = artists.join(', ')
       genres = []
       g = SearchMovie::get_safe(json, 'genres')
       if(g != '')
@@ -98,7 +98,7 @@ class SearchMovie
           genres << genre["name"]
         end
       end
-      tag['Genre']['value'] = genres.join("|")
+      tag['Genre']['value'] = genres.join(" / ")
       tag['Image Path'] = SearchMovie::get_safe(json, 'poster_path')
     end
     return tag

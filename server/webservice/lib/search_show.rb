@@ -70,10 +70,10 @@ class SearchShow
         tag = Tag.create_tag
         tag['Media Type']['value'] = "tvshow"
         tag["Category"]['value'] = "TVShows"
-        tag['Artist']['value'] = actors.gsub(/^\||\|$/, '')
+        tag['Artist']['value'] = actors.gsub(/^\||\|$/, '').gsub(/\|/, ', ')
         tag['TV Show']['value'] = tvshow
         tag['Grouping']['value'] = tvshow
-        tag['Genre']['value'] = genres.gsub(/^\||\|$/, '')
+        tag['Genre']['value'] = genres.gsub(/^\||\|$/, '').gsub(/\|/, ' / ')
         tag['TV Network']['value'] = tvnetwork
         tag['Release Date']['value'] = release
         tag['Copyright']['value'] = release
