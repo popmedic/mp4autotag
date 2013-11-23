@@ -55,7 +55,7 @@ class SearchShow
         epinum = SearchShow.safe_get(episode.elements['EpisodeNumber']).to_i
         seanum = SearchShow.safe_get(episode.elements['SeasonNumber']).to_i
         absnum = SearchShow.safe_get(episode.elements['absolute_number']).to_i
-        epiname = SearchShow.safe_get(episode.elements['EpisodeName'])
+        epiname = SearchShow.safe_get(episode.elements['EpisodeName']).gsub(/ \/ /, ' | ')
         desc = SearchShow.safe_get(episode.elements['Overview'])
         poster = SearchShow.safe_get(episode.elements['filename'])
         epiid = SearchShow.safe_get(episode.elements['id'])
