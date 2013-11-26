@@ -26,7 +26,7 @@ class SearchShow
     xmldoc = SearchShow.series_with_name(seriesname)
     #run though the series...(only do 4 series for search, otherwise we get a 500)
     series_loop_idx = 0
-    series_loop_n = 100
+    series_loop_n = 200
     xmldoc.elements.each('Data/Series') do |series|
       if series_loop_idx > series_loop_n
         self.dbug "BREAKING OUT OF SERIES LOOP XML"
