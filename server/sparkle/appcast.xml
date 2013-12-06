@@ -6,16 +6,16 @@
       	<description>Base version.</description>
       	<language>en</language>
 		<item>
-        	<title>Version 0.1.5 (beta release 1.5)</title>
+        	<title>Version 0.1.6 (beta release 1.6)</title>
 			<sparkle:releaseNotesLink>
-				http://popmedic.com/mp4autotag/sparkle/0.1.5.html
+				http://popmedic.com/mp4autotag/sparkle/0.1.6.html
 			</sparkle:releaseNotesLink>
-          	<pubDate>Fri, 8 Mar 2013 15:50:33 +0700</pubDate>
+          	<pubDate>Mon, 2 Dec 2013 15:50:33 +0700</pubDate>
           	<enclosure
 			url="http://popmedic.com/mp4autotag_builds/latest/Mp4Autotag.zip"
-			sparkle:version="0.1.5"
-			sparkle:dsaSignature="MC4CFQCjjoeTX5nLc2XJeM044VB/Q/5u/QIVAIEDxAVL8nEe8mHhwIsarKOmE/Ub"
-			length="3003666"
+			sparkle:version="0.1.6"
+			sparkle:dsaSignature="MC0CFQCaRnoICIlaFVGfp4S1PWj6JMcN+QIURx/g6eHqv9UjnqD1i8yQRhDBzBc="
+			length="2997360"
 			type="application/octet-stream"
 			/>
 		</item>
